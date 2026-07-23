@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T20:16:53.740Z",
+  "generatedAt": "2026-07-23T20:18:03.650Z",
   "investigations": [
     {
       "id": "INV-1",
@@ -10,8 +10,7 @@
       "centralQuestion": "¿Una investigación creada en Notion aparece automáticamente en el Knowledge Hub?",
       "questions": [],
       "hypotheses": [
-        "GitHub Actions detectará esta entrada",
-        "la auditará y la incorporará a la copia dinámica."
+        "GitHub Actions detectará esta entrada, la auditará y la incorporará a la copia dinámica."
       ],
       "sources": [
         "ART-1"
