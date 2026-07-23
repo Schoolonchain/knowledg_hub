@@ -126,6 +126,13 @@ function lines(value) {
     .filter(Boolean);
 }
 
+function proseLines(value) {
+  return String(value || "")
+    .split(/\r?\n/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
 function first(properties, names, fallback = null) {
   for (const name of names) {
     const value = properties[name];
@@ -205,13 +212,13 @@ function investigationFromPage(page) {
     title: properties["Título"] || null,
     status: statusMap[properties.Estado] || null,
     centralQuestion: properties["Pregunta central"] || null,
-    questions: lines(properties["Preguntas abiertas"]),
-    hypotheses: lines(properties["Hipótesis"]),
+    questions: proseLines(properties["Preguntas abiertas"]),
+    hypotheses: proseLines(properties["Hipótesis"]),
     sources: lines(properties.Fuentes),
-    concepts: lines(properties.Conceptos),
-    entities: lines(properties.Entidades),
-    contradictions: lines(properties.Contradicciones),
-    conclusions: lines(properties.Conclusiones),
+    concepts: proseLines(properties.Conceptos),
+    entities: proseLines(properties.Entidades),
+    contradictions: proseLines(properties.Contradicciones),
+    conclusions: proseLines(properties.Conclusiones),
     created: page.createdTime,
     updated: page.lastEditedTime,
   };
