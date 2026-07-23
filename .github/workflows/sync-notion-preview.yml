@@ -31,15 +31,5 @@ jobs:
       - name: Read connected Notion databases
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_SYNC_MODE: validate
         run: node scripts/sync-notion.mjs
-
-      - name: Upload generated preview
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: notion-preview
-          path: |
-            data/notion-snapshot.json
-            data/investigations.json
-          if-no-files-found: error
-          retention-days: 7

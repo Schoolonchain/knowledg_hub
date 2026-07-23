@@ -184,19 +184,21 @@ const investigations = snapshot.sources.investigations.pages
   .filter((page) => page.properties.Publicar === true)
   .map(investigationFromPage);
 
-await mkdir(new URL("../data/", import.meta.url), { recursive: true });
-await writeFile(
-  new URL("../data/notion-snapshot.json", import.meta.url),
-  `${JSON.stringify(snapshot, null, 2)}\n`,
-);
-await writeFile(
-  new URL("../data/investigations.json", import.meta.url),
-  `${JSON.stringify(
-    { generatedAt: snapshot.generatedAt, investigations },
-    null,
-    2,
-  )}\n`,
-);
+if (process.env.NOTION_SYNC_MODE !== "validate") {
+  await mkdir(new URL("../data/", import.meta.url), { recursive: true });
+  await writeFile(
+    new URL("../data/notion-snapshot.json", import.meta.url),
+    `${JSON.stringify(snapshot, null, 2)}\n`,
+  );
+  await writeFile(
+    new URL("../data/investigations.json", import.meta.url),
+    `${JSON.stringify(
+      { generatedAt: snapshot.generatedAt, investigations },
+      null,
+      2,
+    )}\n`,
+  );
+}
 
 console.log(`Investigaciones publicables: ${investigations.length}`);
 
@@ -217,7 +219,7 @@ if (process.env.GITHUB_STEP_SUMMARY) {
       "",
       `Investigaciones marcadas para publicar: **${investigations.length}**`,
       "",
-      "Los archivos se guardaron como artefactos de prueba. La web pública no se modificó.",
+      "La validación solo publicó conteos. No se guardó ni exportó contenido de Notion.",
       "",
     ].join("\n"),
   );
