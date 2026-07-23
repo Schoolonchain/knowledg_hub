@@ -154,16 +154,30 @@ const snapshot = {
   notionVersion: NOTION_VERSION,
   sources: {},
 };
+const sourceErrors = [];
 
 for (const source of sources) {
-  const pages = await queryAll(source.dataSourceId);
-  snapshot.sources[source.key] = {
-    name: source.name,
-    dataSourceId: source.dataSourceId,
-    count: pages.length,
-    pages,
-  };
-  console.log(`${source.name}: ${pages.length} registros`);
+  try {
+    const pages = await queryAll(source.dataSourceId);
+    snapshot.sources[source.key] = {
+      name: source.name,
+      dataSourceId: source.dataSourceId,
+      count: pages.length,
+      pages,
+    };
+    console.log(`${source.name}: ${pages.length} registros`);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    sourceErrors.push({ key: source.key, name: source.name, message });
+    snapshot.sources[source.key] = {
+      name: source.name,
+      dataSourceId: source.dataSourceId,
+      count: null,
+      pages: [],
+      error: message,
+    };
+    console.error(`${source.name}: ERROR — ${message}`);
+  }
 }
 
 const investigations = snapshot.sources.investigations.pages
@@ -188,8 +202,9 @@ console.log(`Investigaciones publicables: ${investigations.length}`);
 
 if (process.env.GITHUB_STEP_SUMMARY) {
   const rows = sources.map((source) => {
-    const count = snapshot.sources[source.key].count;
-    return `| ${source.name} | ${count} |`;
+    const result = snapshot.sources[source.key];
+    const status = result.error ? "❌ Sin acceso" : `✅ ${result.count}`;
+    return `| ${source.name} | ${status} |`;
   });
   await writeFile(
     process.env.GITHUB_STEP_SUMMARY,
@@ -205,5 +220,13 @@ if (process.env.GITHUB_STEP_SUMMARY) {
       "Los archivos se guardaron como artefactos de prueba. La web pública no se modificó.",
       "",
     ].join("\n"),
+  );
+}
+
+if (sourceErrors.length) {
+  const names = sourceErrors.map((error) => error.name).join(", ");
+  throw new Error(
+    `La integración no puede leer ${sourceErrors.length} fuente(s): ${names}. ` +
+      "Conecta esas bases originales con la integración Knowledge Hub y vuelve a ejecutar el workflow.",
   );
 }
