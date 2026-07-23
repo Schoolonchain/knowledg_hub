@@ -1,7 +1,9 @@
-name: Sync Notion preview
+name: Sync Notion and audit
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
   push:
     branches:
       - agent/test-notion-connection
@@ -9,13 +11,15 @@ on:
       - ".github/workflows/sync-notion-preview.yml"
       - "config/notion-sources.json"
       - "scripts/sync-notion.mjs"
+      - "scripts/audit-generated-data.mjs"
+      - "index.html"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   sync-preview:
-    name: Build private preview data
+    name: Build and audit public Hub data
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -31,5 +35,15 @@ jobs:
       - name: Read connected Notion databases
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-          NOTION_SYNC_MODE: validate
         run: node scripts/sync-notion.mjs
+
+      - name: Audit generated data
+        run: node scripts/audit-generated-data.mjs
+
+      - name: Commit refreshed public data
+        run: |
+          git config user.name "knowledge-hub-bot"
+          git config user.email "knowledge-hub-bot@users.noreply.github.com"
+          git add data/content.json data/investigations.json
+          git diff --cached --quiet || git commit -m "sync public Notion data"
+          git push

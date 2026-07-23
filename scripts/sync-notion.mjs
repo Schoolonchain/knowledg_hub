@@ -126,16 +126,84 @@ function lines(value) {
     .filter(Boolean);
 }
 
+function first(properties, names, fallback = null) {
+  for (const name of names) {
+    const value = properties[name];
+    if (value !== null && value !== undefined && value !== "") return value;
+  }
+  return fallback;
+}
+
+function list(properties, names) {
+  const value = first(properties, names, []);
+  if (Array.isArray(value)) return value;
+  return lines(value);
+}
+
+function dateStart(value) {
+  return value && typeof value === "object" ? value.start : value || null;
+}
+
+function contentFromPage(page, source) {
+  const properties = page.properties;
+  return {
+    id: first(properties, ["ID", "Id", "id"]),
+    notionId: page.notionId,
+    title: first(properties, [
+      "Título", "Titulo", "Nombre", "Name", "Etiqueta", "Concepto",
+      "Entrevista completa",
+    ]),
+    db: source.name,
+    url: page.url,
+    serie: first(properties, ["Serie", "Sección", "Seccion", "Módulo", "Modulo"]),
+    fecha: dateStart(first(properties, [
+      "Fecha publicación", "Fecha de publicación", "Fecha",
+      "Última revisión", "Actualizada",
+    ])),
+    tipo: first(properties, ["Tipo", "Categoría", "Categoria", "Estado"]),
+    lectura: first(properties, ["Lectura (min)", "Lectura", "Duración", "Duracion"]),
+    urlFuente: first(properties, [
+      "URL Medium", "URL fuente", "URL original", "Fuente", "Enlace",
+    ]),
+    etiquetas: list(properties, [
+      "Etiquetas", "Ecosistema", "Tags", "Temas", "Nivel",
+    ]),
+    desc: first(properties, [
+      "Descripción", "Descripcion", "Resumen", "Notas", "Contenido derivado",
+    ]),
+    relacionadas: list(properties, [
+      "Entradas relacionadas", "Relacionadas", "Artículos derivados",
+    ]),
+    anterior: list(properties, ["Anterior"]),
+    siguiente: list(properties, ["Siguiente"]),
+    glosario: list(properties, ["Glosario", "Conceptos"]),
+    entrevistas: list(properties, [
+      "Entrevistas de origen", "Entrevista origen", "Entrevistas",
+    ]),
+    createdTime: page.createdTime,
+    lastEditedTime: page.lastEditedTime,
+  };
+}
+
 function investigationFromPage(page) {
   const properties = page.properties;
   const generatedId = properties.ID || null;
+  const statusMap = {
+    Propuesta: "proposal",
+    Borrador: "draft",
+    Activa: "active",
+    Pausada: "paused",
+    Concluida: "concluded",
+    Archivada: "archived",
+    Abandonada: "abandoned",
+  };
 
   return {
     id: generatedId,
     notionId: page.notionId,
     url: page.url,
-    title: properties["Título"] || "Sin título",
-    status: properties.Estado || "Borrador",
+    title: properties["Título"] || null,
+    status: statusMap[properties.Estado] || null,
     centralQuestion: properties["Pregunta central"] || null,
     questions: lines(properties["Preguntas abiertas"]),
     hypotheses: lines(properties["Hipótesis"]),
@@ -185,10 +253,18 @@ const investigations = snapshot.sources.investigations.pages
   .map(investigationFromPage);
 
 if (process.env.NOTION_SYNC_MODE !== "validate") {
+  const content = sources
+    .filter((source) => source.key !== "investigations")
+    .flatMap((source) =>
+      snapshot.sources[source.key].pages.map((page) =>
+        contentFromPage(page, source),
+      ),
+    );
+
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });
   await writeFile(
-    new URL("../data/notion-snapshot.json", import.meta.url),
-    `${JSON.stringify(snapshot, null, 2)}\n`,
+    new URL("../data/content.json", import.meta.url),
+    `${JSON.stringify({ generatedAt: snapshot.generatedAt, content }, null, 2)}\n`,
   );
   await writeFile(
     new URL("../data/investigations.json", import.meta.url),
@@ -198,6 +274,7 @@ if (process.env.NOTION_SYNC_MODE !== "validate") {
       2,
     )}\n`,
   );
+  console.log(`Contenido web generado: ${content.length} entradas`);
 }
 
 console.log(`Investigaciones publicables: ${investigations.length}`);

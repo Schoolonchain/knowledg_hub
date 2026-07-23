@@ -4083,7 +4083,7 @@ const SYSTEM_STATE = {
   }
 };
 
-const DATA = [
+let DATA = [
   { id:"ART-1",notionId:"3a428cdf77098159b840ef3969434e65", title:"Binance Smart Chain en 2026", db:"✍️ Artículos propios", url:"https://onchainschool.notion.site/Binance-Smart-Chain-en-2026-3a428cdf77098159b840ef3969434e65", serie:"Arquitecturas de poder", fecha:"2026-01-10", tipo:"Análisis de ecosistema", lectura:"4", urlFuente:"https://medium.com/@SchoolOnChain/binance-smart-chain-en-2026-c35736852df0", etiquetas:["BSC"] , desc:"Análisis de Binance Smart Chain en 2026: cómo una red controlada por una empresa puede convertirse en infraestructura dominante. Parte de la serie Arquitecturas de poder." },
   { id:"ART-2",notionId:"3a428cdf7709818596fcd907b3ad0176", title:"Solana en 2026: cuando la eficiencia reordena el poder", db:"✍️ Artículos propios", url:"https://onchainschool.notion.site/Solana-en-2026-cuando-la-eficiencia-reordena-el-poder-3a428cdf7709818596fcd907b3ad0176", serie:"Arquitecturas de poder", fecha:"2026-01-09", tipo:"Análisis de ecosistema", lectura:"4", urlFuente:"https://medium.com/@SchoolOnChain/solana-en-2026-8f0c7e45272b", etiquetas:["Solana"] , desc:"Análisis de Solana en 2026: cómo la eficiencia técnica reordena el poder en el ecosistema blockchain. Parte de la serie Arquitecturas de poder." },
   { id:"ART-3",notionId:"3a428cdf770981cb8264eba40dae5c58", title:"TRON en 2026: cuando el poder no vive en el protocolo", db:"✍️ Artículos propios", url:"https://onchainschool.notion.site/TRON-en-2026-cuando-el-poder-no-vive-en-el-protocolo-3a428cdf770981cb8264eba40dae5c58", serie:"Arquitecturas de poder", fecha:"2026-01-08", tipo:"Análisis de ecosistema", lectura:"4", urlFuente:"https://medium.com/@SchoolOnChain/tron-en-2026-6e414ebecad2", etiquetas:["TRON"] , entrevistas:["32e28cdf7709806884a3c9f4baeb3ad4","32e28cdf77098050b5fddd864c888f62"] , desc:"Análisis de TRON en 2026: un ecosistema donde el poder no reside en el protocolo sino en quien lo controla. Parte de la serie Arquitecturas de poder." },
@@ -4472,14 +4472,24 @@ let state = {
 /* ═══════════════════════════════════════════════════════════════
    DERIVED DATA
 ═══════════════════════════════════════════════════════════════ */
-const DB_LIST    = [...new Set(DATA.map(d => d.db))];
-const dbCounts   = {};
-DB_LIST.forEach(db => dbCounts[db] = DATA.filter(d => d.db === db).length);
-const maxCount   = Math.max(...Object.values(dbCounts));
+let DB_LIST = [];
+let dbCounts = {};
+let maxCount = 0;
+let ciberCount = 0;
+let techCount = 0;
+let criptoCount = 0;
 
-const ciberCount  = DATA.filter(d => AREA_MAP.ciber.includes(d.db)).length;
-const techCount   = DATA.filter(d => AREA_MAP.tech.includes(d.db)).length;
-const criptoCount = DATA.filter(d => AREA_MAP.cripto.includes(d.db)).length;
+function recomputeDerivedData() {
+  DB_LIST = [...new Set(DATA.map(d => d.db))];
+  dbCounts = {};
+  DB_LIST.forEach(db => dbCounts[db] = DATA.filter(d => d.db === db).length);
+  maxCount = Math.max(1, ...Object.values(dbCounts));
+  ciberCount = DATA.filter(d => AREA_MAP.ciber.includes(d.db)).length;
+  techCount = DATA.filter(d => AREA_MAP.tech.includes(d.db)).length;
+  criptoCount = DATA.filter(d => AREA_MAP.cripto.includes(d.db)).length;
+}
+
+recomputeDerivedData();
 
 /* ═══════════════════════════════════════════════════════════════
    INIT STATIC COUNTS
@@ -6258,14 +6268,36 @@ document.getElementById('pillar-fuentes').addEventListener('click', () => {
 document.getElementById('pillar-produccion').addEventListener('click', () => goExploreDB('✍️ Artículos propios'));
 document.getElementById('pillar-conocimiento').addEventListener('click', () => goExploreDB('📚 Biblioteca'));
 
-initCounts();
-buildHomeDBGrid();
-buildHomeRecent();
-buildChips();
-buildDonut();
-buildDist();
-renderTable();
-renderIntegrity();
+async function bootKnowledgeHub() {
+  try {
+    const [contentResponse, investigationsResponse] = await Promise.all([
+      fetch('./data/content.json', { cache: 'no-store' }),
+      fetch('./data/investigations.json', { cache: 'no-store' }),
+    ]);
+    if (contentResponse.ok) {
+      const payload = await contentResponse.json();
+      if (Array.isArray(payload.content)) DATA = payload.content;
+    }
+    if (investigationsResponse.ok) {
+      const payload = await investigationsResponse.json();
+      if (Array.isArray(payload.investigations)) INVESTIGATIONS = payload.investigations;
+    }
+  } catch (error) {
+    console.warn('No se pudo cargar la sincronización de Notion; se usa la copia integrada.', error);
+  }
+
+  recomputeDerivedData();
+  initCounts();
+  buildHomeDBGrid();
+  buildHomeRecent();
+  buildChips();
+  buildDonut();
+  buildDist();
+  renderTable();
+  renderIntegrity();
+}
+
+bootKnowledgeHub();
 </script>
 
 
