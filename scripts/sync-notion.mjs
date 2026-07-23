@@ -152,7 +152,7 @@ function contentFromPage(page, source) {
     title: first(properties, [
       "Título", "Titulo", "Nombre", "Name", "Etiqueta", "Concepto",
       "Entrevista completa",
-    ]),
+    ], ""),
     db: source.name,
     url: page.url,
     serie: first(properties, ["Serie", "Sección", "Seccion", "Módulo", "Modulo"]),

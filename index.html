@@ -4696,8 +4696,8 @@ function chip(label, isActive, onClick, color = null) {
 function matchQuery(e, q) {
   if (!q) return true;
   // Campos estructurados — búsqueda siempre, sin mínimo de longitud
-  if (e.id.toLowerCase().includes(q))    return true;
-  if (e.title.toLowerCase().includes(q)) return true;
+  if (String(e.id || '').toLowerCase().includes(q))    return true;
+  if (String(e.title || '').toLowerCase().includes(q)) return true;
   if ((e.serie  || '').toLowerCase().includes(q)) return true;
   if ((e.db     || '').toLowerCase().includes(q)) return true;
   if ((e.cve    || '').toLowerCase().includes(q)) return true;
