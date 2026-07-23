@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T21:59:48.005Z",
+  "generatedAt": "2026-07-23T22:14:21.994Z",
   "content": [
     {
       "id": "ART-64",
@@ -4252,7 +4252,9 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981fe8081cffe29965483"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:19:00.000Z",
       "lastEditedTime": "2026-07-23T21:19:00.000Z"
@@ -4327,7 +4329,9 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981fe8081cffe29965483"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-22T20:20:00.000Z",
       "lastEditedTime": "2026-07-22T20:22:00.000Z"
@@ -6071,17 +6075,19 @@
       "etiquetas": [
         "Fundamental"
       ],
-      "desc": "En ciberseguridad, se refiere a la protección de datos personales y la capacidad de los usuarios de controlar qué información se recopila sobre ellos. Incluye regulaciones (GDPR, CCPA), técnicas de anonimización, tracking prevention, y análisis de fugas de datos. En blockchain, engloba también mixers, zero-knowledge proofs, y técnicas de ofuscación de transacciones.",
+      "desc": "Propiedad sistémica que limita qué datos pueden observarse, vincularse o inferirse, por quién y bajo qué condiciones. En ciberseguridad exige protección por diseño y por defecto, minimización de datos y control de terceros. En blockchain incluye primitivas como firmas de anillo, direcciones ocultas, transacciones confidenciales y pruebas de conocimiento cero, pero también el conjunto de anonimato, los metadatos de red, el comportamiento operativo, wallets, nodos/RPC, gobernanza y soberanía de infraestructura. Una garantía criptográfica no implica por sí sola privacidad efectiva.",
       "relacionadas": [
         "3a628cdf7709812eadbec11fb40d7166",
-        "3a628cdf770981d1ae17ffa77f53887f"
+        "3a628cdf770981d1ae17ffa77f53887f",
+        "3a628cdf770981ce8953f4a09c12d9fa",
+        "3a528cdf77098120a3bed750c2faec30"
       ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:41:00.000Z",
-      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+      "lastEditedTime": "2026-07-23T22:10:00.000Z"
     },
     {
       "id": "GLC-33",

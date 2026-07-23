@@ -1,6 +1,48 @@
 {
-  "generatedAt": "2026-07-23T21:59:48.005Z",
+  "generatedAt": "2026-07-23T22:14:21.994Z",
   "investigations": [
+    {
+      "id": "INV-3",
+      "notionId": "3a628cdf770981e08822ea28035d80ef",
+      "url": "https://app.notion.com/p/Privacidad-como-propiedad-del-sistema-del-protocolo-criptogr-fico-a-la-soberan-a-operativa-3a628cdf770981e08822ea28035d80ef",
+      "title": "Privacidad como propiedad del sistema: del protocolo criptográfico a la soberanía operativa",
+      "status": "concluded",
+      "centralQuestion": "¿Puede la privacidad sostenerse como propiedad real cuando depende simultáneamente del protocolo, la infraestructura, el comportamiento del usuario y la gobernanza?",
+      "questions": [
+        "¿Cómo medir privacidad efectiva y no solo garantías teóricas? ¿Qué fricción de uso es aceptable para mantener privacidad por defecto? ¿Qué dependencias —wallets, extensiones, RPC, analítica, terceros— deben incluirse en una auditoría? ¿Cómo comparar conjuntos de anonimato y fugas de metadatos entre Monero, Grin, Firo y aplicaciones con mixers?"
+      ],
+      "hypotheses": [
+        "La privacidad no es una función aislada del protocolo, sino una propiedad emergente del sistema completo. La criptografía puede ocultar datos onchain, pero metadatos, timing, reutilización de direcciones, software privilegiado, terceros y decisiones de gobernanza pueden degradarla. Por tanto, la privacidad efectiva exige privacidad por defecto, minimización de datos, infraestructura verificable y disciplina operativa."
+      ],
+      "sources": [
+        "ART-59",
+        "ART-39",
+        "ART-6",
+        "ART-7",
+        "ART-8",
+        "ENTR-3",
+        "ENTR-2",
+        "RDH-28",
+        "RDH-19",
+        "RDH-18",
+        "RDH-12",
+        "RDH-6"
+      ],
+      "concepts": [
+        "Privacidad por diseño y por defecto; conjunto de anonimato; firmas de anillo; direcciones ocultas; transacciones confidenciales; zero-knowledge proofs; metadatos; análisis temporal; reutilización de direcciones; seguridad operacional; minimización de datos; soberanía técnica; fungibilidad; autocustodia"
+      ],
+      "entities": [
+        "Monero; Grin; Firo; Beam; Tornado Cash; cΔrovΣr0; gordonesTV; Jscrambler; Adobe; WhatsApp; Guardio Labs; Suno; EDPB"
+      ],
+      "contradictions": [
+        "Privacidad por defecto vs. usabilidad, adopción e interoperabilidad; transparencia y auditabilidad vs. confidencialidad; garantía criptográfica vs. desanonimización por comportamiento y metadatos; descentralización formal vs. dependencia de mantenedores e infraestructura; cumplimiento normativo declarado vs. trackers y software de terceros."
+      ],
+      "conclusions": [
+        "La oportunidad es real, pero no porque existan tres etiquetas independientes: diez señales únicas convergen en una tesis sistémica. La privacidad efectiva es una cadena cuya resistencia depende del eslabón más débil. Debe evaluarse conjuntamente en protocolo, infraestructura, operación y gobernanza, distinguiendo propiedades demostrables de inferencias y riesgos hipotéticos."
+      ],
+      "created": "2026-07-23T22:09:00.000Z",
+      "updated": "2026-07-23T22:09:00.000Z"
+    },
     {
       "id": "INV-2",
       "notionId": "3a628cdf7709814691b6c188d4661cf6",
