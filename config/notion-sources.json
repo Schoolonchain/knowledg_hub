@@ -1,0 +1,52 @@
+[
+  {
+    "key": "articles",
+    "name": "✍️ Artículos propios",
+    "dataSourceId": "dee1b389-a53a-4f8b-b197-b51ded487e14"
+  },
+  {
+    "key": "interviews",
+    "name": "🎙️ Entrevistas",
+    "dataSourceId": "32e28cdf-7709-8038-8ec5-000b57efb0bd"
+  },
+  {
+    "key": "tldr",
+    "name": "💻 TLDR Dev",
+    "dataSourceId": "36769f84-8239-4180-9687-7cd9730fd249"
+  },
+  {
+    "key": "hacker-corner",
+    "name": "🔐 El Rincón del Hacker",
+    "dataSourceId": "ab92e5f3-b966-4607-8b20-56a96fc5cede"
+  },
+  {
+    "key": "osint",
+    "name": "🔎 OSINT Newsletter",
+    "dataSourceId": "3c7dba70-9402-4b23-8bda-c8720f2df3a4"
+  },
+  {
+    "key": "pwn",
+    "name": "🔓 PWN | Hacker Community",
+    "dataSourceId": "0118d6f9-bd46-49f1-be18-61a0bef38a5b"
+  },
+  {
+    "key": "library",
+    "name": "📚 Biblioteca",
+    "dataSourceId": "5294a684-ff20-4944-9aef-4fc362b23741"
+  },
+  {
+    "key": "security-glossary",
+    "name": "🏷️ Glosario de Etiquetas",
+    "dataSourceId": "d25162b6-2c06-40d6-b764-103914260271"
+  },
+  {
+    "key": "tldr-glossary",
+    "name": "📖 Glosario TLDR",
+    "dataSourceId": "01410f52-66c5-46d3-87de-22573c6a0d63"
+  },
+  {
+    "key": "investigations",
+    "name": "🔬 Investigaciones",
+    "dataSourceId": "c792c68c-2dda-4d5b-adb3-9885c9e9f962"
+  }
+]

@@ -1,0 +1,44 @@
+name: Sync Notion preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/test-notion-connection
+    paths:
+      - ".github/workflows/sync-notion-preview.yml"
+      - "config/notion-sources.json"
+      - "scripts/sync-notion.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  sync-preview:
+    name: Build private preview data
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Read connected Notion databases
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: node scripts/sync-notion.mjs
+
+      - name: Upload generated preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: notion-preview
+          path: |
+            data/notion-snapshot.json
+            data/investigations.json
+          if-no-files-found: error
+          retention-days: 7
