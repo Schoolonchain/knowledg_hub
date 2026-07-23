@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T21:45:29.320Z",
+  "generatedAt": "2026-07-23T21:59:48.005Z",
   "content": [
     {
       "id": "ART-64",
@@ -6939,6 +6939,33 @@
       "entrevistas": [],
       "createdTime": "2026-07-20T21:24:00.000Z",
       "lastEditedTime": "2026-07-20T21:50:00.000Z"
+    },
+    {
+      "id": "GLT-38",
+      "notionId": "3a628cdf77098118848de25aefa4fd4c",
+      "title": "AP2 (Agent Payments Protocol)",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/AP2-Agent-Payments-Protocol-3a628cdf77098118848de25aefa4fd4c",
+      "serie": null,
+      "fecha": null,
+      "tipo": "IA y Modelos",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Avanzado"
+      ],
+      "desc": "Protocolo abierto para pagos iniciados por agentes de IA. Registra la intención y autorización del usuario mediante mandatos firmados criptográficamente: qué puede comprar el agente, con qué límites y bajo qué condiciones. AP2 no es un medio de pago; funciona como capa de confianza y auditoría compatible con tarjetas, transferencias, stablecoins y extensiones como x402.",
+      "relacionadas": [
+        "3a428cdf770981bcab46d56068ce2297",
+        "3a528cdf77098111a1dfe1cb5f085b4e",
+        "3a628cdf7709816fbba1d3ea7ee95593"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:56:00.000Z",
+      "lastEditedTime": "2026-07-23T21:56:00.000Z"
     },
     {
       "id": "GLT-36",

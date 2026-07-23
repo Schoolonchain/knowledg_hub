@@ -1,6 +1,51 @@
 {
-  "generatedAt": "2026-07-23T21:45:29.320Z",
+  "generatedAt": "2026-07-23T21:59:48.005Z",
   "investigations": [
+    {
+      "id": "INV-2",
+      "notionId": "3a628cdf7709814691b6c188d4661cf6",
+      "url": "https://app.notion.com/p/Pagos-para-agentes-de-IA-x402-AP2-y-MPP-entre-la-econom-a-de-m-quinas-y-el-problema-de-la-autoriza-3a628cdf7709814691b6c188d4661cf6",
+      "title": "Pagos para agentes de IA: x402, AP2 y MPP entre la economía de máquinas y el problema de la autorización",
+      "status": "concluded",
+      "centralQuestion": "¿Qué infraestructura permite hoy que un agente de IA pague o cobre de forma autónoma, y qué límites de autorización, seguridad, cumplimiento e interoperabilidad impiden todavía una adopción fiable?",
+      "questions": [
+        "¿Convergerán x402, AP2 y MPP o competirán por capas distintas?",
+        "¿Qué métricas públicas permitirán distinguir uso real de pruebas y anuncios?",
+        "¿Cómo se asignará responsabilidad por una transacción errónea inducida por prompt injection?",
+        "¿Qué modelo dominará: saldo propio del agente, credencial delegada del usuario o ambos?"
+      ],
+      "hypotheses": [
+        "La adopción inicial se concentrará en pagos máquina-a-máquina de bajo importe y alto volumen, especialmente APIs y cómputo.",
+        "La ventaja de blockchain no es que sustituya todo el sistema de pagos, sino que ofrece liquidación programable y abierta para ciertos flujos; los raíles fiat seguirán siendo necesarios.",
+        "La autorización verificable y los límites de gasto serán más determinantes que la inteligencia del agente para alcanzar producción regulada."
+      ],
+      "sources": [
+        "TDV-77",
+        "TDV-24",
+        "TDV-33",
+        "TDV-25",
+        "TDV-23"
+      ],
+      "concepts": [
+        "Agente de IA; economía de máquinas; pagos agénticos; x402; Agent Payments Protocol (AP2); Machine Payments Protocol (MPP); stablecoins; mandato de autorización; liquidación; credenciales verificables"
+      ],
+      "entities": [
+        "Natural; x402 Foundation; Coinbase; AWS; Google; Stripe; Tempo; Fondo Monetario Internacional; Column N.A."
+      ],
+      "contradictions": [
+        "La tesis del Hub presenta blockchain como infraestructura natural, pero Natural y MPP adoptan diseños multirraíl que incluyen banca y fiat.",
+        "La autonomía aumenta eficiencia, pero los pagos exigen autorización, trazabilidad y responsabilidad deterministas frente al comportamiento probabilístico del agente.",
+        "La existencia de protocolos, SDK y productos no demuestra todavía adopción masiva ni un estándar ganador."
+      ],
+      "conclusions": [
+        "Existe una categoría real y emergente de infraestructura de pagos para agentes, respaldada por productos, protocolos abiertos y actores financieros relevantes.",
+        "El stack se divide en intención/autorización, descubrimiento/comercio y ejecución/liquidación; ningún protocolo resuelve por sí solo todas las capas.",
+        "x402 es especialmente adecuado para recursos digitales y micropagos; AP2 aporta mandatos y prueba de intención; MPP busca un mecanismo internet-native compatible con stablecoins y fiat.",
+        "La oportunidad para School Onchain es analizar la convergencia entre agentes, stablecoins y control verificable, evitando presentar una proyección de mercado como hecho consumado."
+      ],
+      "created": "2026-07-23T21:55:00.000Z",
+      "updated": "2026-07-23T21:57:00.000Z"
+    },
     {
       "id": "INV-1",
       "notionId": "3a628cdf770981b9b521fb970188c105",
