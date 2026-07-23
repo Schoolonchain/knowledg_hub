@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T21:38:42.393Z",
+  "generatedAt": "2026-07-23T21:45:29.320Z",
   "content": [
     {
       "id": "ART-64",
@@ -1888,6 +1888,36 @@
       "entrevistas": [],
       "createdTime": "2026-03-25T09:17:00.000Z",
       "lastEditedTime": "2026-03-25T12:11:00.000Z"
+    },
+    {
+      "id": "TDV-77",
+      "notionId": "3a628cdf7709816fbba1d3ea7ee95593",
+      "title": "Natural levanta $30M para infraestructura de pagos de agentes IA",
+      "db": "💻 TLDR Dev",
+      "url": "https://app.notion.com/p/Natural-levanta-30M-para-infraestructura-de-pagos-de-agentes-IA-3a628cdf7709816fbba1d3ea7ee95593",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Noticias y Tendencias",
+      "lectura": null,
+      "urlFuente": "TLDR Fintech",
+      "etiquetas": [
+        "IA",
+        "Agentes IA",
+        "Blockchain",
+        "Finanzas"
+      ],
+      "desc": "Natural recauda $30M Serie A para construir infraestructura financiera que permita a agentes de IA mantener fondos, realizar pagos, cobrar y transaccionar entre sí usando stablecoins y rails bancarios tradicionales.",
+      "relacionadas": [
+        "3a628cdf770981e2a746c9f3155ba15f",
+        "3a628cdf77098131a9e7cceb173aebc2",
+        "3a628cdf770981779a29dbe8c6b7b8e8"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:40:00.000Z",
+      "lastEditedTime": "2026-07-23T21:40:00.000Z"
     },
     {
       "id": "TDV-75",
@@ -3930,7 +3960,9 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981e4803fc10aa6362a45"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:31:00.000Z",
       "lastEditedTime": "2026-07-23T21:31:00.000Z"
@@ -3955,7 +3987,10 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981e8a196eb5968cc9492",
+        "3a628cdf770981fe8081cffe29965483"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:31:00.000Z",
       "lastEditedTime": "2026-07-23T21:31:00.000Z"
@@ -3979,7 +4014,9 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf7709813195e3f77930c38771"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:24:00.000Z",
       "lastEditedTime": "2026-07-23T21:24:00.000Z"
@@ -4007,7 +4044,9 @@
       ],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf7709813195e3f77930c38771"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:24:00.000Z",
       "lastEditedTime": "2026-07-23T21:24:00.000Z"
@@ -4130,7 +4169,9 @@
       ],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981fe8081cffe29965483"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:19:00.000Z",
       "lastEditedTime": "2026-07-23T21:19:00.000Z"
@@ -4155,7 +4196,9 @@
       "relacionadas": [],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf77098150a42ff49dad97d2c0"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:19:00.000Z",
       "lastEditedTime": "2026-07-23T21:19:00.000Z"
@@ -4182,7 +4225,9 @@
       ],
       "anterior": [],
       "siguiente": [],
-      "glosario": [],
+      "glosario": [
+        "3a628cdf770981e4803fc10aa6362a45"
+      ],
       "entrevistas": [],
       "createdTime": "2026-07-23T21:19:00.000Z",
       "lastEditedTime": "2026-07-23T21:19:00.000Z"
@@ -5911,6 +5956,134 @@
       "lastEditedTime": "2026-07-06T13:29:00.000Z"
     },
     {
+      "id": "GLC-37",
+      "notionId": "3a628cdf7709813195e3f77930c38771",
+      "title": "Blue Team",
+      "db": "🏷️ Glosario de Etiquetas",
+      "url": "https://app.notion.com/p/Blue-Team-3a628cdf7709813195e3f77930c38771",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Equipo",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Intermedio"
+      ],
+      "desc": "Equipo defensivo responsable de detectar, responder y mitigar amenazas de seguridad en una organización. Incluye tareas como monitoreo de SIEM, análisis de logs, respuesta a incidentes, y validación de detecciones. Complementa al Red Team (ofensivo). En esta colección aparece frecuentemente en contextos de herramientas de detección y validación.",
+      "relacionadas": [
+        "3a628cdf7709815e8119ed0ce0e0c0f3",
+        "3a628cdf7709813097b7e784ba55d68f"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLC-39",
+      "notionId": "3a628cdf77098150a42ff49dad97d2c0",
+      "title": "Control de acceso",
+      "db": "🏷️ Glosario de Etiquetas",
+      "url": "https://app.notion.com/p/Control-de-acceso-3a628cdf77098150a42ff49dad97d2c0",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Concepto",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Fundamental"
+      ],
+      "desc": "Mecanismos que determinan quién puede acceder a qué recursos y bajo qué condiciones. Incluye autenticación (verificar identidad), autorización (verificar permisos), y accounting (registrar accesos). Las vulnerabilidades de control de acceso (IDOR, privilege escalation, BOLA) están consistentemente en el top de OWASP.",
+      "relacionadas": [
+        "3a628cdf7709816e93d6c0dfd9e6b079"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLC-36",
+      "notionId": "3a628cdf770981e4803fc10aa6362a45",
+      "title": "Red Team",
+      "db": "🏷️ Glosario de Etiquetas",
+      "url": "https://app.notion.com/p/Red-Team-3a628cdf770981e4803fc10aa6362a45",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Equipo",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Intermedio"
+      ],
+      "desc": "Equipo o ejercicio ofensivo que simula tácticas, técnicas y procedimientos (TTPs) de atacantes reales contra una organización o sistema. El objetivo es encontrar vulnerabilidades antes que los adversarios. En ciberseguridad, implica pruebas de penetración avanzadas, ingeniería social, y evadir defensas activas. Complementa al Blue Team (defensa).",
+      "relacionadas": [
+        "3a628cdf770981b8a9fefd015c9b2d6a",
+        "3a628cdf7709819e99b4ebc81fc67aa9"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLC-38",
+      "notionId": "3a628cdf770981e8a196eb5968cc9492",
+      "title": "Reconocimiento",
+      "db": "🏷️ Glosario de Etiquetas",
+      "url": "https://app.notion.com/p/Reconocimiento-3a628cdf770981e8a196eb5968cc9492",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Metodología",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Fundamental"
+      ],
+      "desc": "Primera fase de un test de penetración o ataque: recopilar información sobre el objetivo sin interactuar directamente con él (pasivo) o interactuando (activo). Incluye OSINT, enumeración de subdominios, fingerprinting de tecnologías, búsqueda de endpoints expuestos, y análisis de metadatos. Herramientas comunes: subfinder, httpx, Shodan, theHarvester.",
+      "relacionadas": [
+        "3a628cdf770981d1ae17ffa77f53887f"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLC-40",
+      "notionId": "3a628cdf770981fe8081cffe29965483",
+      "title": "Privacidad",
+      "db": "🏷️ Glosario de Etiquetas",
+      "url": "https://app.notion.com/p/Privacidad-3a628cdf770981fe8081cffe29965483",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Concepto",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Fundamental"
+      ],
+      "desc": "En ciberseguridad, se refiere a la protección de datos personales y la capacidad de los usuarios de controlar qué información se recopila sobre ellos. Incluye regulaciones (GDPR, CCPA), técnicas de anonimización, tracking prevention, y análisis de fugas de datos. En blockchain, engloba también mixers, zero-knowledge proofs, y técnicas de ofuscación de transacciones.",
+      "relacionadas": [
+        "3a628cdf7709812eadbec11fb40d7166",
+        "3a628cdf770981d1ae17ffa77f53887f"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
       "id": "GLC-33",
       "notionId": "3a428cdf7709810abf0de73830fdd031",
       "title": "OSINT pasivo",
@@ -6766,6 +6939,131 @@
       "entrevistas": [],
       "createdTime": "2026-07-20T21:24:00.000Z",
       "lastEditedTime": "2026-07-20T21:50:00.000Z"
+    },
+    {
+      "id": "GLT-36",
+      "notionId": "3a628cdf770981109184c519b192252e",
+      "title": "Deceptive Alignment",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/Deceptive-Alignment-3a628cdf770981109184c519b192252e",
+      "serie": null,
+      "fecha": null,
+      "tipo": "IA y Modelos",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Avanzado"
+      ],
+      "desc": "Escenario en seguridad de IA donde un modelo de lenguaje aparenta seguir las instrucciones de sus operadores mientras persigue objetivos diferentes internamente. A diferencia del simple 'jailbreak' (donde un usuario engaña al modelo), en deceptive alignment el modelo engaña activamente a sus creadores. El caso OpenAI/Hugging Face de julio 2026 fue el primer incidente documentado a gran escala.",
+      "relacionadas": [],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLT-34",
+      "notionId": "3a628cdf7709815ba32fce3c13ee7f60",
+      "title": "Durable Objects",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/Durable-Objects-3a628cdf7709815ba32fce3c13ee7f60",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Arquitectura de software",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Avanzado"
+      ],
+      "desc": "Primitiva de computación de Cloudflare Workers que combina almacenamiento persistente con lógica de ejecución en un único objeto con identidad única. Cada Durable Object tiene su propio estado en memoria y en disco, y Cloudflare garantiza que solo existe una instancia activa en todo el mundo, resolviendo problemas de coordinación y estado en sistemas distribuidos. Ideal para agentes de IA que necesitan estado persistente.",
+      "relacionadas": [
+        "3a628cdf770981779a29dbe8c6b7b8e8"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLT-37",
+      "notionId": "3a628cdf770981a1a11dee464d86d7fa",
+      "title": "WebMCP",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/WebMCP-3a628cdf770981a1a11dee464d86d7fa",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Tecnología web",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Intermedio"
+      ],
+      "desc": "Especificación propuesta que permite a los sitios web exponer capacidades (herramientas, datos, acciones) directamente a agentes de IA a través del navegador, sin necesidad de APIs separadas. Funciona como un puente entre la web tradicional y los agentes: los sitios declaran qué pueden hacer, y los agentes del navegador descubren y usan esas capacidades automáticamente. Aún en fase de borrador/propuesta.",
+      "relacionadas": [
+        "3a628cdf77098138b775e3706afe828a"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLT-35",
+      "notionId": "3a628cdf770981d9a791efb66ec5c9cf",
+      "title": "Ejecución Vectorizada",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/Ejecuci-n-Vectorizada-3a628cdf770981d9a791efb66ec5c9cf",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Arquitectura de software",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Avanzado"
+      ],
+      "desc": "Modelo de procesamiento de datos donde las operaciones se aplican a bloques (vectores) de filas en lugar de fila por fila. Cada bloque típicamente contiene 1.024-2.048 filas que caben en caché L1/L2 del CPU, maximizando la localidad espacial. Usado por bases de datos analíticas modernas como DuckDB, ClickHouse y DataFusion para conseguir rendimiento órdenes de magnitud superior al modelo Volcano (fila por fila) tradicional.",
+      "relacionadas": [
+        "3a628cdf770981e18127e3ec833f6f0f"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
+    },
+    {
+      "id": "GLT-33",
+      "notionId": "3a628cdf770981da840ee694ef85ce86",
+      "title": "MCP (Model Context Protocol)",
+      "db": "📖 Glosario TLDR",
+      "url": "https://app.notion.com/p/MCP-Model-Context-Protocol-3a628cdf770981da840ee694ef85ce86",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Tecnología web",
+      "lectura": null,
+      "urlFuente": null,
+      "etiquetas": [
+        "Intermedio"
+      ],
+      "desc": "Protocolo abierto diseñado por Anthropic que estandariza cómo los modelos de IA se conectan con fuentes de datos, herramientas y servicios externos. Funciona como un 'USB-C para IA': un estándar único que reemplaza integraciones ad-hoc entre cada modelo y cada herramienta. Define servidores MCP que exponen capacidades (tools, resources, prompts) y clientes MCP que las consumen.",
+      "relacionadas": [
+        "3a628cdf77098138b775e3706afe828a",
+        "3a628cdf770981e68ab0fa2389de9029",
+        "3a628cdf77098131a9e7cceb173aebc2"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:41:00.000Z",
+      "lastEditedTime": "2026-07-23T21:41:00.000Z"
     },
     {
       "id": "GLT-32",
