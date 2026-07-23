@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T20:51:01.009Z",
+  "generatedAt": "2026-07-23T20:53:27.994Z",
   "content": [
     {
       "id": "ART-64",
@@ -4498,27 +4498,6 @@
       "entrevistas": [],
       "createdTime": "2026-07-04T23:40:00.000Z",
       "lastEditedTime": "2026-07-05T18:19:00.000Z"
-    },
-    {
-      "id": "BIB-33",
-      "notionId": "39328cdf77098092993bed122745942d",
-      "title": "",
-      "db": "📚 Biblioteca",
-      "url": "https://app.notion.com/p/39328cdf77098092993bed122745942d",
-      "serie": null,
-      "fecha": null,
-      "tipo": null,
-      "lectura": null,
-      "urlFuente": null,
-      "etiquetas": [],
-      "desc": null,
-      "relacionadas": [],
-      "anterior": [],
-      "siguiente": [],
-      "glosario": [],
-      "entrevistas": [],
-      "createdTime": "2026-07-04T12:45:00.000Z",
-      "lastEditedTime": "2026-07-04T12:45:00.000Z"
     },
     {
       "id": "BIB-29",
