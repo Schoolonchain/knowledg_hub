@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T21:25:37.794Z",
+  "generatedAt": "2026-07-23T21:37:14.361Z",
   "content": [
     {
       "id": "ART-64",
@@ -1890,6 +1890,57 @@
       "lastEditedTime": "2026-03-25T12:11:00.000Z"
     },
     {
+      "id": "TDV-75",
+      "notionId": "3a628cdf770981a0a1f2dbe69e2c5030",
+      "title": "Aurora DSQL: base de datos serverless distribuida de AWS",
+      "db": "💻 TLDR Dev",
+      "url": "https://app.notion.com/p/Aurora-DSQL-base-de-datos-serverless-distribuida-de-AWS-3a628cdf770981a0a1f2dbe69e2c5030",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Artículos y Tutoriales",
+      "lectura": null,
+      "urlFuente": "TLDR Data",
+      "etiquetas": [
+        "Backend",
+        "Herramientas"
+      ],
+      "desc": "Aurora DSQL es la apuesta de AWS por una base de datos SQL serverless y distribuida globalmente. Compatible con PostgreSQL, elimina vacuum y ofrece consistencia fuerte multi-región, pero tiene limitaciones en DDL y features de Postgres.",
+      "relacionadas": [],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:29:00.000Z",
+      "lastEditedTime": "2026-07-23T21:29:00.000Z"
+    },
+    {
+      "id": "TDV-76",
+      "notionId": "3a628cdf770981e2a746c9f3155ba15f",
+      "title": "To Every Agent Its Own Database: autonomía de datos para agentes de IA",
+      "db": "💻 TLDR Dev",
+      "url": "https://app.notion.com/p/To-Every-Agent-Its-Own-Database-autonom-a-de-datos-para-agentes-de-IA-3a628cdf770981e2a746c9f3155ba15f",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Opiniones y Consejos",
+      "lectura": null,
+      "urlFuente": "TLDR Data",
+      "etiquetas": [
+        "IA",
+        "Backend"
+      ],
+      "desc": "Cada agente de IA debería tener su propia base de datos en lugar de compartir una central. Reduce acoplamiento, permite evolución independiente de schemas y escala mejor cuando los agentes proliferan.",
+      "relacionadas": [
+        "3a628cdf770981779a29dbe8c6b7b8e8",
+        "3a628cdf77098131a9e7cceb173aebc2"
+      ],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:29:00.000Z",
+      "lastEditedTime": "2026-07-23T21:29:00.000Z"
+    },
+    {
       "id": "TDV-74",
       "notionId": "3a628cdf77098170a8d7d0644b4f0c4e",
       "title": "OpenAI planea gastar $750B en infraestructura de IA",
@@ -1954,7 +2005,10 @@
         "Herramientas"
       ],
       "desc": "DuckDB procesa datos en batches de 2.048 filas cache-friendly en lugar de fila por fila. Sus formatos vectoriales, selection vectors, operaciones precompiladas y pipelines push-based reducen copia, overhead de llamadas y costes de ejecución paralela.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf77098178a656f8013c25bb52",
+        "3a628cdf770981a0a1f2dbe69e2c5030"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -2004,7 +2058,9 @@
         "Seguridad"
       ],
       "desc": "Google presenta Gemini 3.5 Flash Cyber, un modelo de IA específicamente entrenado para tareas de ciberseguridad, marcando la tendencia de modelos especializados por dominio frente a los generalistas.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf770981c992dbc8319a0d8580"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -2080,7 +2136,11 @@
         "Herramientas"
       ],
       "desc": "WebMCP permite a páginas web registrar funciones JavaScript tipadas que los agentes IA del navegador pueden invocar. Aunque tiene fuerte soporte de la industria, la adopción por sitios web es cercana a cero y ningún agente mainstream consume las herramientas aún.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf770981e68ab0fa2389de9029",
+        "3a628cdf770981779a29dbe8c6b7b8e8",
+        "3a628cdf77098131a9e7cceb173aebc2"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -2128,7 +2188,10 @@
         "Hardware"
       ],
       "desc": "Anthropic comprará hasta 2 gigawatts de chips AMD Instinct MI450 a partir del primer semestre de 2027, y AMD invertirá hasta $5.000 millones en Anthropic conforme se cumplan hitos de despliegue.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf77098170a8d7d0644b4f0c4e",
+        "3a628cdf7709814ba80dc4f12b6ce8d4"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -2154,7 +2217,12 @@
         "Herramientas"
       ],
       "desc": "Cloudflare Durable Objects combinan un isolate V8 serverless, una instancia SQLite emparejada y routing de requests a un isolate específico, ofreciendo una primitiva single-threaded, event-driven y con soporte nativo de WebSockets ideal para agentes IA.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf77098138b775e3706afe828a",
+        "3a628cdf770981e68ab0fa2389de9029",
+        "3a628cdf770981e2a746c9f3155ba15f",
+        "3a628cdf77098131a9e7cceb173aebc2"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -3843,6 +3911,56 @@
       "lastEditedTime": "2026-07-21T11:47:00.000Z"
     },
     {
+      "id": "RDH-27",
+      "notionId": "3a628cdf770981b8a9fefd015c9b2d6a",
+      "title": "Fake Job Interview: malware oculto en take-home projects",
+      "db": "🔐 El Rincón del Hacker",
+      "url": "https://app.notion.com/p/Fake-Job-Interview-malware-oculto-en-take-home-projects-3a628cdf770981b8a9fefd015c9b2d6a",
+      "serie": null,
+      "fecha": null,
+      "tipo": "Ingeniería social",
+      "lectura": null,
+      "urlFuente": "TLDR Webdev",
+      "etiquetas": [
+        "Python",
+        "Linux",
+        "Red Team"
+      ],
+      "desc": "Un reclutador falso ofrece empleo Python con salario atractivo y envía un proyecto take-home con git hooks maliciosos que exfiltran datos del sistema del candidato.",
+      "relacionadas": [],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:31:00.000Z",
+      "lastEditedTime": "2026-07-23T21:31:00.000Z"
+    },
+    {
+      "id": "RDH-28",
+      "notionId": "3a628cdf770981d1ae17ffa77f53887f",
+      "title": "Tornado Cash demixing: cómo los analistas deanonimizan transacciones",
+      "db": "🔐 El Rincón del Hacker",
+      "url": "https://app.notion.com/p/Tornado-Cash-demixing-c-mo-los-analistas-deanonimizan-transacciones-3a628cdf770981d1ae17ffa77f53887f",
+      "serie": null,
+      "fecha": null,
+      "tipo": "OSINT",
+      "lectura": null,
+      "urlFuente": "TLDR Crypto",
+      "etiquetas": [
+        "Reconocimiento",
+        "Metodología",
+        "Privacidad"
+      ],
+      "desc": "Técnicas y herramientas open-source (tornado-demix, retrace) para correlacionar depósitos y retiros de Tornado Cash explotando patrones de comportamiento.",
+      "relacionadas": [],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-23T21:31:00.000Z",
+      "lastEditedTime": "2026-07-23T21:31:00.000Z"
+    },
+    {
       "id": "RDH-25",
       "notionId": "3a628cdf7709813097b7e784ba55d68f",
       "title": "Splunk como herramienta SIEM más demandada en España: SPL y el gap de competencias en SOC",
@@ -3883,7 +4001,10 @@
         "Red Team"
       ],
       "desc": "Metodología para validación end-to-end de detecciones usando Claude Code con skills personalizadas para escribir y ejecutar simulaciones de ataque con TTPForge, verificar si fueron detectadas e iterar automáticamente.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf7709813097b7e784ba55d68f",
+        "3a628cdf770981c096ede11a097e86aa"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -3930,7 +4051,9 @@
         "Autenticación"
       ],
       "desc": "La app Ledger de Zilliqa genera firmas con nonces efímeros predeciblemente debilitados, permitiendo a atacantes reconstruir claves privadas a partir de datos públicos onchain de cualquier wallet que haya firmado 5+ transacciones nativas ZIL vía Ledger.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf770981d1ae17ffa77f53887f"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -4002,7 +4125,9 @@
         "JavaScript"
       ],
       "desc": "Jscrambler descubrió que bancos europeos y estadounidenses envían datos de clientes (emails, teléfonos, nombres, DNI, detalles de préstamos) a Google, Meta, TikTok y Salesforce vía tracking pixels, en algunos casos antes o sin consentimiento del usuario.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf77098139937dc68ff7d3f667"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
@@ -4052,7 +4177,9 @@
         "Control de acceso"
       ],
       "desc": "Un cluster de malware basado en AppleScript manipula la base de datos TCC de macOS para otorgarse permisos de acceso a Documentos, Descargas, Mail y Notas, con vínculos al actor norcoreano Sapphire Sleet que ataca a empleados del sector cripto.",
-      "relacionadas": [],
+      "relacionadas": [
+        "3a628cdf770981b8a9fefd015c9b2d6a"
+      ],
       "anterior": [],
       "siguiente": [],
       "glosario": [],
