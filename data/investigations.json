@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-23T20:25:26.055Z",
+  "investigations": [
+    {
+      "id": "INV-1",
+      "notionId": "3a628cdf770981b9b521fb970188c105",
+      "url": "https://app.notion.com/p/PRUEBA-Sincronizaci-n-autom-tica-del-Knowledge-Hub-3a628cdf770981b9b521fb970188c105",
+      "title": "[PRUEBA] Sincronización automática del Knowledge Hub",
+      "status": "active",
+      "centralQuestion": "¿Una investigación creada en Notion aparece automáticamente en el Knowledge Hub?",
+      "questions": [],
+      "hypotheses": [
+        "GitHub Actions detectará esta entrada, la auditará y la incorporará a la copia dinámica."
+      ],
+      "sources": [
+        "ART-1"
+      ],
+      "concepts": [],
+      "entities": [],
+      "contradictions": [],
+      "conclusions": [],
+      "created": "2026-07-23T20:16:00.000Z",
+      "updated": "2026-07-23T20:16:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: Test Notion connection
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/test-notion-connection
+    paths:
+      - ".github/workflows/test-notion-connection.yml"
+      - "scripts/test-notion-connection.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  test-connection:
+    name: Read Artículos propios
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Query Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: node scripts/test-notion-connection.mjs
