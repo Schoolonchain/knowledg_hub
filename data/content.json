@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T20:25:26.055Z",
+  "generatedAt": "2026-07-23T20:51:01.009Z",
   "content": [
     {
       "id": "ART-64",
@@ -1601,7 +1601,7 @@
       "lastEditedTime": "2026-07-21T13:27:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-8",
       "notionId": "32e28cdf770980f99f71d50b2cc7ccb7",
       "title": "Entrevista sobre LinknRed – Confianza y comercio digital",
       "db": "🎙️ Entrevistas",
@@ -1637,7 +1637,7 @@
       "lastEditedTime": "2026-03-25T11:56:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-7",
       "notionId": "32e28cdf770980399a49dbf9434f6cfa",
       "title": "Entrevista con Bigoso – Comunidad, coordinación y sistemas fuera de la lógica tradicional",
       "db": "🎙️ Entrevistas",
@@ -1673,7 +1673,7 @@
       "lastEditedTime": "2026-03-25T11:56:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-6",
       "notionId": "32e28cdf77098050b5fddd864c888f62",
       "title": "Entrevista con Carlos – Divulgación y ecosistema TRON",
       "db": "🎙️ Entrevistas",
@@ -1710,7 +1710,7 @@
       "lastEditedTime": "2026-03-25T11:56:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-5",
       "notionId": "32e28cdf770980e18ac1c5b64601d295",
       "title": "La política del dinero – Poder, inflación y control monetario",
       "db": "🎙️ Entrevistas",
@@ -1747,7 +1747,7 @@
       "lastEditedTime": "2026-03-25T11:56:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-4",
       "notionId": "32e28cdf7709806884a3c9f4baeb3ad4",
       "title": "Entrevista a Brutus Finance – Ecosistemas operativos en TRON",
       "db": "🎙️ Entrevistas",
@@ -1784,7 +1784,7 @@
       "lastEditedTime": "2026-03-25T12:11:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-3",
       "notionId": "32e28cdf7709809ab171f7091253afcb",
       "title": "Entrevista con gordonesTV – Educación, libertad financiera y adopción real",
       "db": "🎙️ Entrevistas",
@@ -1818,7 +1818,7 @@
       "lastEditedTime": "2026-03-25T11:56:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-2",
       "notionId": "32e28cdf770980fd9756e5eb3032227d",
       "title": "Entrevista con cΔrovΣr0 – Infraestructura, privacidad y soberanía técnica",
       "db": "🎙️ Entrevistas",
@@ -1854,7 +1854,7 @@
       "lastEditedTime": "2026-03-25T11:57:00.000Z"
     },
     {
-      "id": null,
+      "id": "ENTR-1",
       "notionId": "32e28cdf7709803d84a3e70c3aad2058",
       "title": "Entrevista con Spider – Adopción real vs narrativa",
       "db": "🎙️ Entrevistas",
