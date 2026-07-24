@@ -2999,7 +2999,7 @@ function openDetailByIdx(idx) {
       dpRel.innerHTML = '<div class="gen-empty">Sin relaciones registradas para esta entrada.</div>';
     }
   }
-  document.getElementById('dp-notion-link').href = entry.url;
+  document.getElementById('dp-notion-link').href = safeURL(entry.url);
 
   document.querySelectorAll('tr.data-row').forEach(r => r.classList.remove('selected'));
   document.querySelectorAll(`tr.data-row[data-idx="${idx}"]`).forEach(r => r.classList.add('selected'));
@@ -3397,11 +3397,11 @@ function renderIntelligence() {
         '<div class="opp-footer">' +
           '<span class="opp-evidence">regla: ' + escapeHTML(opp.rule) + ' · evidencia: tag_frequency · confianza: ' + escapeHTML(opp.confidence) + '</span>' +
           '<div class="opp-actions">' +
-            '<button class="opp-btn opp-btn-secondary" id="btn-entries-' + opp.id + '" onclick="toggleOppEntries(\'' + escapeJSString(opp.id) + '\',' + JSON.stringify(opp.entryIndices) + ',\'' + escapeJSString(opp.tag) + '\',\'' + escapeJSString(opp.rule) + '\')">Ver entradas (' + opp.entryIndices.length + ') ↓</button>' +
+            '<button class="opp-btn opp-btn-secondary" id="btn-entries-' + escapeHTML(opp.id) + '" onclick="toggleOppEntries(\'' + escapeJSString(opp.id) + '\',' + JSON.stringify(opp.entryIndices) + ',\'' + escapeJSString(opp.tag) + '\',\'' + escapeJSString(opp.rule) + '\')">Ver entradas (' + opp.entryIndices.length + ') ↓</button>' +
             '<button class="opp-btn opp-btn-primary" onclick="suggestInvestigation(\'' + escapeJSString(opp.tag) + '\',\'' + escapeJSString(opp.id) + '\')">💡 Sugerir investigación</button>' +
           '</div>' +
         '</div>' +
-        '<div class="opp-entries-panel" id="entries-' + opp.id + '" style="display:none"></div>' +
+        '<div class="opp-entries-panel" id="entries-' + escapeHTML(opp.id) + '" style="display:none"></div>' +
       '</div>';
     }).join('');
   }
@@ -3499,11 +3499,11 @@ function renderInvList() {
   }
   listEl.innerHTML = INVESTIGATIONS.map(function(inv) {
     const isSelected = state.selectedInv && state.selectedInv.id === inv.id;
-    const statusBadge = INV_STATE_LABELS[inv.status] || inv.status;
+    const statusBadge = INV_STATE_LABELS[inv.status] || escapeHTML(inv.status);
     return '<div class="inv-card' + (isSelected ? ' selected' : '') + (inv.isDemo ? ' is-demo' : '') + '" onclick="selectInv(\'' + escapeJSString(inv.id) + '\')">' +
       '<div class="inv-card-head">' +
         '<span class="inv-card-id">' + escapeHTML(inv.id) + '</span>' +
-        '<span class="inv-status-badge ' + inv.status + '">' + statusBadge + '</span>' +
+        '<span class="inv-status-badge ' + escapeHTML(inv.status) + '">' + statusBadge + '</span>' +
       '</div>' +
       (inv.isDemo ? '<div class="demo-banner">⚠️ DEMO / EXAMPLE DATA</div>' : '') +
       '<div class="inv-card-title">' + escapeHTML(inv.title) + '</div>' +
@@ -3533,7 +3533,7 @@ function renderInvDetail(inv) {
     return DATA.find(function(d) { return d.id === sid; });
   }).filter(Boolean);
 
-  const statusBadge = INV_STATE_LABELS[inv.status] || inv.status;
+  const statusBadge = INV_STATE_LABELS[inv.status] || escapeHTML(inv.status);
   const transitions = INV_TRANSITIONS[inv.status] || [];
 
   // Botones de transición de estado
@@ -3553,7 +3553,7 @@ function renderInvDetail(inv) {
           '<div>' +
             '<div style="font-size:10px;color:var(--text3);font-family:monospace;margin-bottom:6px">' + escapeHTML(inv.id) + ' · ' + escapeHTML(inv.created || '—') + '</div>' +
             '<div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px">' + escapeHTML(inv.title) + '</div>' +
-            '<span class="inv-status-badge ' + inv.status + '">' + statusBadge + '</span>' +
+            '<span class="inv-status-badge ' + escapeHTML(inv.status) + '">' + statusBadge + '</span>' +
           '</div>' +
         '</div>' +
         (transitions.length ? '<div class="inv-state-controls">' + stateButtons + '</div>' : '') +
