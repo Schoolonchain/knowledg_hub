@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T09:59:15.183Z",
+  "generatedAt": "2026-07-24T10:15:23.373Z",
   "content": [
     {
       "id": "ART-64",
@@ -1888,6 +1888,27 @@
       "entrevistas": [],
       "createdTime": "2026-03-25T09:17:00.000Z",
       "lastEditedTime": "2026-03-25T12:11:00.000Z"
+    },
+    {
+      "id": "TDV-85",
+      "notionId": "3a728cdf77098145a2b5d1c923e829ec",
+      "title": "TDV-59 · Sistemas de IA como producto: pensamiento sistémico para PMs",
+      "db": "💻 TLDR Dev",
+      "url": "https://app.notion.com/p/TDV-59-Sistemas-de-IA-como-producto-pensamiento-sist-mico-para-PMs-3a728cdf77098145a2b5d1c923e829ec",
+      "serie": null,
+      "fecha": null,
+      "tipo": null,
+      "lectura": null,
+      "urlFuente": "TLDR Product",
+      "etiquetas": [],
+      "desc": null,
+      "relacionadas": [],
+      "anterior": [],
+      "siguiente": [],
+      "glosario": [],
+      "entrevistas": [],
+      "createdTime": "2026-07-24T10:10:00.000Z",
+      "lastEditedTime": "2026-07-24T10:10:00.000Z"
     },
     {
       "id": "TDV-84",
