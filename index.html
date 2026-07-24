@@ -4233,13 +4233,16 @@ function renderIntegrity() {
    BOOT
 ═══════════════════════════════════════════════════════════════ */
 // ── Descarga del index ───────────────────────────────────────
+// Fetch the original file from the server instead of using outerHTML,
+// which would persist any DOM-injected content (XSS payloads included).
 document.getElementById('dl-index').addEventListener('click', function() {
-  const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'knowledge-hub-index.html';
-  a.click();
-  URL.revokeObjectURL(a.href);
+  fetch('index.html').then(function(r) { return r.blob(); }).then(function(blob) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'knowledge-hub-index.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
 });
 
 document.getElementById('home-btn').style.display = 'none';
