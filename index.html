@@ -2712,20 +2712,6 @@ function filterByTag(tag) {
   renderTable();
 }
 
-// Filtra por serie exacta — mantiene el comportamiento de las tarjetas de series
-function filterBySeries(series) {
-  state.activeArea = null;
-  state.activeDB   = 'all';
-  state.activeTag  = null;
-  state.activeSeries = series;
-  state.query      = '';
-  const searchEl   = document.getElementById('search');
-  if (searchEl) searchEl.value = '';
-  switchView('explore');
-  buildChips();
-  renderTable();
-}
-
 // Índice global para lookup por data-idx
 function rowHTML(e, idx) {
   const meta = DB_META[e.db] || { color:'#888', icon:'📄' };
