@@ -1647,69 +1647,69 @@ svg.donut   { width: 100px; height: 100px; }
 
   <nav class="sidebar-nav">
     <div class="nav-section">Vistas</div>
-    <button class="nav-item" id="nav-home" onclick="switchView('home')">
+    <button class="nav-item" id="nav-home" data-action="switch-view" data-view="home">
       <span class="ni">🏠</span> Inicio
     </button>
-    <button class="nav-item" id="nav-explore" onclick="switchView('explore')">
+    <button class="nav-item" id="nav-explore" data-action="switch-view" data-view="explore">
       <span class="ni">🔍</span> Explorar
       <span class="nav-count" id="nc-total">236</span>
     </button>
 
-    <button class="nav-item" id="nav-intelligence" onclick="switchView('intelligence')">
+    <button class="nav-item" id="nav-intelligence" data-action="switch-view" data-view="intelligence">
       <span class="ni">🧠</span> Intelligence
     </button>
-    <button class="nav-item" id="nav-investigations" onclick="switchView('investigations')">
+    <button class="nav-item" id="nav-investigations" data-action="switch-view" data-view="investigations">
       <span class="ni">🔬</span> Investigaciones
       <span class="nav-count" id="nc-inv">1</span>
     </button>
-    <button class="nav-item active" id="nav-integrity" onclick="switchView('integrity')">
+    <button class="nav-item active" id="nav-integrity" data-action="switch-view" data-view="integrity">
       <span class="ni">🩺</span> System Integrity
       <span class="nav-count" id="nc-integrity" style="color: rgb(91, 168, 91);">✅</span>
     </button>
 
     <div class="nav-section">Áreas</div>
-    <button class="nav-item" onclick="goExploreArea('ciber')">
+    <button class="nav-item" data-action="explore-area" data-area="ciber">
       <div class="nav-dot" style="background:var(--ciber)"></div>
       Ciberseguridad
       <span class="nav-count" id="nc-ciber">47</span>
     </button>
-    <button class="nav-item" onclick="goExploreArea('tech')">
+    <button class="nav-item" data-action="explore-area" data-area="tech">
       <div class="nav-dot" style="background:var(--tech)"></div>
       Tecnología
       <span class="nav-count" id="nc-tech">83</span>
     </button>
-    <button class="nav-item" onclick="goExploreArea('cripto')">
+    <button class="nav-item" data-action="explore-area" data-area="cripto">
       <div class="nav-dot" style="background:var(--cripto)"></div>
       Finanzas &amp; Cripto
       <span class="nav-count" id="nc-cripto">106</span>
     </button>
 
     <div class="nav-section">Bases de datos</div>
-    <button class="nav-item" onclick="goExploreDB('✍️ Artículos propios')">
+    <button class="nav-item" data-action="explore-db" data-db="✍️ Artículos propios">
       <span class="ni">✍️</span> Artículos propios
     </button>
-    <button class="nav-item" onclick="goExploreDB('📚 Biblioteca')">
+    <button class="nav-item" data-action="explore-db" data-db="📚 Biblioteca">
       <span class="ni">📚</span> Biblioteca
     </button>
-    <button class="nav-item" onclick="goExploreDB('🔐 El Rincón del Hacker')">
+    <button class="nav-item" data-action="explore-db" data-db="🔐 El Rincón del Hacker">
       <span class="ni">🔐</span> El Rincón del Hacker
     </button>
-    <button class="nav-item" onclick="goExploreDB('💻 TLDR Dev')">
+    <button class="nav-item" data-action="explore-db" data-db="💻 TLDR Dev">
       <span class="ni">💻</span> TLDR Dev
     </button>
-    <button class="nav-item" onclick="goExploreDB('🔎 OSINT Newsletter')">
+    <button class="nav-item" data-action="explore-db" data-db="🔎 OSINT Newsletter">
       <span class="ni">🔎</span> OSINT Newsletter
     </button>
-    <button class="nav-item" onclick="goExploreDB('🔓 PWN | Hacker Community')">
+    <button class="nav-item" data-action="explore-db" data-db="🔓 PWN | Hacker Community">
       <span class="ni">🔓</span> PWN | Hacker Community
     </button>
-    <button class="nav-item" onclick="goExploreDB('🎙️ Entrevistas')">
+    <button class="nav-item" data-action="explore-db" data-db="🎙️ Entrevistas">
       <span class="ni">🎙️</span> Entrevistas
     </button>
-    <button class="nav-item" onclick="goExploreDB('🏷️ Glosario de Etiquetas')">
+    <button class="nav-item" data-action="explore-db" data-db="🏷️ Glosario de Etiquetas">
       <span class="ni">🏷️</span> Glosario de Etiquetas
     </button>
-    <button class="nav-item" onclick="goExploreDB('📖 Glosario TLDR')">
+    <button class="nav-item" data-action="explore-db" data-db="📖 Glosario TLDR">
       <span class="ni">📖</span> Glosario TLDR
     </button>
   </nav>
@@ -1735,17 +1735,17 @@ svg.donut   { width: 100px; height: 100px; }
   <!-- TOPBAR -->
   <div class="topbar">
     <button class="toggle-sidebar-btn" id="toggle-sidebar-btn" title="Mostrar/ocultar menú">☰</button>
-    <button class="home-btn" id="home-btn" onclick="switchView('home')" title="Volver al inicio" style="display: flex;">🏠</button>
+    <button class="home-btn" id="home-btn" data-action="switch-view" data-view="home" title="Volver al inicio" style="display: flex;">🏠</button>
     <div>
       <div class="topbar-title" id="topbar-title">System Integrity</div>
       <div class="topbar-sub" id="topbar-sub">Auditoría de integridad de identidades · solo lectura</div>
     </div>
     <div class="view-toggle">
-      <button class="vtbtn" id="vt-home" onclick="switchView('home')">Inicio</button>
-      <button class="vtbtn" id="vt-explore" onclick="switchView('explore')">Explorar</button>
-      <button class="vtbtn" id="vt-intelligence" onclick="switchView('intelligence')">Intelligence</button>
-      <button class="vtbtn" id="vt-investigations" onclick="switchView('investigations')">Investigaciones</button>
-      <button class="vtbtn active" id="vt-integrity" onclick="switchView('integrity')">🩺 Integridad</button>
+      <button class="vtbtn" id="vt-home" data-action="switch-view" data-view="home">Inicio</button>
+      <button class="vtbtn" id="vt-explore" data-action="switch-view" data-view="explore">Explorar</button>
+      <button class="vtbtn" id="vt-intelligence" data-action="switch-view" data-view="intelligence">Intelligence</button>
+      <button class="vtbtn" id="vt-investigations" data-action="switch-view" data-view="investigations">Investigaciones</button>
+      <button class="vtbtn active" id="vt-integrity" data-action="switch-view" data-view="integrity">🩺 Integridad</button>
     </div>
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
@@ -1847,10 +1847,10 @@ svg.donut   { width: 100px; height: 100px; }
       <!-- Areas -->
       <div class="s-head">
         <div class="s-head-title">Explorar por área</div>
-        <span class="s-head-action" onclick="switchView('explore')">Ver todo →</span>
+        <span class="s-head-action" data-action="switch-view" data-view="explore">Ver todo →</span>
       </div>
       <div class="areas-grid">
-        <div class="area-card" onclick="goExploreArea('ciber')">
+        <div class="area-card" data-action="explore-area" data-area="ciber">
           <div class="area-icon">🔐</div>
           <div class="area-name">Ciberseguridad &amp; OSINT</div>
           <div class="area-desc">Newsletters, OSINT, vulnerabilidades, amenazas y análisis de seguridad.</div>
@@ -1860,7 +1860,7 @@ svg.donut   { width: 100px; height: 100px; }
           </div>
           <div class="area-bar" style="background:var(--ciber);width:100%"></div>
         </div>
-        <div class="area-card" onclick="goExploreArea('tech')">
+        <div class="area-card" data-action="explore-area" data-area="tech">
           <div class="area-icon">💡</div>
           <div class="area-name">Tecnología &amp; Desarrollo</div>
           <div class="area-desc">IA, desarrollo, herramientas, frameworks y tendencias del sector tech.</div>
@@ -1870,7 +1870,7 @@ svg.donut   { width: 100px; height: 100px; }
           </div>
           <div class="area-bar" style="background:var(--tech);width:100%"></div>
         </div>
-        <div class="area-card" onclick="goExploreArea('cripto')">
+        <div class="area-card" data-action="explore-area" data-area="cripto">
           <div class="area-icon">🧭</div>
           <div class="area-name">Finanzas &amp; Cripto</div>
           <div class="area-desc">On-chain, DeFi, tokens, análisis de mercado, entrevistas y más.</div>
@@ -1885,19 +1885,19 @@ svg.donut   { width: 100px; height: 100px; }
       <!-- DB mini grid -->
       <div class="s-head">
         <div class="s-head-title">Bases de datos</div>
-        <span class="s-head-action" onclick="switchView('explore')">Explorar →</span>
+        <span class="s-head-action" data-action="switch-view" data-view="explore">Explorar →</span>
       </div>
       <div class="db-grid" id="home-db-grid"></div>
 
       <!-- Last entries preview -->
       <div class="s-head" style="margin-top:8px">
         <div class="s-head-title">Últimas entradas</div>
-        <span class="s-head-action" onclick="switchView('explore')">Ver todas →</span>
+        <span class="s-head-action" data-action="switch-view" data-view="explore">Ver todas →</span>
       </div>
       <div class="home-recent">
         <div class="home-recent-head">
           <span class="home-recent-title">Índice maestro — vista previa</span>
-          <span class="home-recent-more" onclick="switchView('explore')">Ver índice completo →</span>
+          <span class="home-recent-more" data-action="switch-view" data-view="explore">Ver índice completo →</span>
         </div>
         <table>
           <thead>
@@ -2077,7 +2077,7 @@ svg.donut   { width: 100px; height: 100px; }
         <div>
           <div style="font-size:13px;color:var(--text2);margin-bottom:4px">Procesos activos de comprensión. Cada investigación consume entradas, conceptos y entidades.</div>
         </div>
-        <button class="btn-new-inv" onclick="openNewInvestigationForm()">+ Nueva investigación</button>
+        <button class="btn-new-inv" data-action="new-investigation">+ Nueva investigación</button>
       </div>
 
       <!-- Proposal form (oculto por defecto) -->
@@ -2116,7 +2116,7 @@ svg.donut   { width: 100px; height: 100px; }
       <div class="detail-db-pill" id="dp-db-pill">—</div>
       <div class="detail-title" id="dp-title">—</div>
     </div>
-    <button class="detail-close" onclick="closeDetail()" title="Cerrar">✕</button>
+    <button class="detail-close" data-action="close-detail" title="Cerrar">✕</button>
   </div>
 
   <div class="detail-body">
@@ -2213,10 +2213,6 @@ const _ESC_MAP = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;
 const _ESC_RE  = /[&<>"']/g;
 function escapeHTML(s) { return s == null ? '' : String(s).replace(_ESC_RE, function(c){ return _ESC_MAP[c]; }); }
 function safeURL(u) { return u && typeof u === 'string' && /^https?:\/\//i.test(u.trim()) ? u.trim() : '#'; }
-function escapeJSString(s) {
-  return s == null ? '' : String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'\\"')
-    .replace(/\n/g,'\\n').replace(/\r/g,'\\r').replace(/</g,'\\x3c').replace(/>/g,'\\x3e');
-}
 function truncEsc(s, n) { if (!s) return ''; var t = String(s); return escapeHTML(t.length > n ? t.substring(0, n) + '…' : t); }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2895,7 +2891,7 @@ function openDetailByIdx(idx) {
     if (entry.etiquetas && entry.etiquetas.length) {
       dpTagsSection.style.display = 'block';
       dpTags.innerHTML = entry.etiquetas.map(function(t) {
-        return '<span class="dp-tag-chip" onclick="filterByTag(\'' + escapeJSString(t) + '\')" title="Filtrar por &#39;' + escapeHTML(t) + '&#39;">🏷️ ' + escapeHTML(t) + '</span>';
+        return '<span class="dp-tag-chip" data-action="filter-tag" data-tag="' + escapeHTML(t) + '" title="Filtrar por &#39;' + escapeHTML(t) + '&#39;">🏷️ ' + escapeHTML(t) + '</span>';
       }).join('');
     } else {
       dpTagsSection.style.display = 'none';
@@ -2936,7 +2932,7 @@ function openDetailByIdx(idx) {
       entry.anterior.forEach(function(rid) {
         const found = DATA.find(function(d){ return d.url && d.url.includes(rid); });
         if (!found) return;
-        genNodes.push('<div class="gen-node" onclick="openDetailByIdx(' + DATA.findIndex(function(d){ return d === found; }) + ')" style="cursor:pointer">' +
+        genNodes.push('<div class="gen-node" data-action="open-detail" data-idx="' + DATA.findIndex(function(d){ return d === found; }) + '" style="cursor:pointer">' +
           '<span style="font-size:13px;margin-right:6px">⬅️</span>' +
           '<span style="color:var(--text3);font-size:10px;margin-right:6px">ANTERIOR</span>' +
           '<span style="color:var(--accent2);font-weight:600;margin-right:6px">' + escapeHTML(found.id) + '</span>' +
@@ -2949,7 +2945,7 @@ function openDetailByIdx(idx) {
         const rid = eid.replace(/-/g,'');
         const found = DATA.find(function(d){ return d.url && d.url.includes(rid); });
         if (!found) return;
-        genNodes.push('<div class="gen-node" onclick="openDetailByIdx(' + DATA.findIndex(function(d){ return d === found; }) + ')" style="cursor:pointer">' +
+        genNodes.push('<div class="gen-node" data-action="open-detail" data-idx="' + DATA.findIndex(function(d){ return d === found; }) + '" style="cursor:pointer">' +
           '<span style="font-size:13px;margin-right:6px">🎙️</span>' +
           '<span style="color:var(--text3);font-size:10px;margin-right:6px">ENTREVISTA</span>' +
           '<span style="color:var(--accent2);font-weight:600;margin-right:6px">' + escapeHTML(found.id) + '</span>' +
@@ -2961,7 +2957,7 @@ function openDetailByIdx(idx) {
       entry.siguiente.forEach(function(rid) {
         const found = DATA.find(function(d){ return d.url && d.url.includes(rid); });
         if (!found) return;
-        genNodes.push('<div class="gen-node" onclick="openDetailByIdx(' + DATA.findIndex(function(d){ return d === found; }) + ')" style="cursor:pointer">' +
+        genNodes.push('<div class="gen-node" data-action="open-detail" data-idx="' + DATA.findIndex(function(d){ return d === found; }) + '" style="cursor:pointer">' +
           '<span style="font-size:13px;margin-right:6px">➡️</span>' +
           '<span style="color:var(--text3);font-size:10px;margin-right:6px">SIGUIENTE</span>' +
           '<span style="color:var(--accent2);font-weight:600;margin-right:6px">' + escapeHTML(found.id) + '</span>' +
@@ -2986,7 +2982,7 @@ function openDetailByIdx(idx) {
         if (!found) return '';
         const fi = DATA.findIndex(function(d){ return d.url && d.url.includes(cleanId); });
         const icon = found.db.includes('Glosario') ? '🏷️' : (found.db.includes('Artículos') ? '✍️' : '🔗');
-        return '<div class="gen-node" onclick="openDetailByIdx(' + fi + ')" style="cursor:pointer">' +
+        return '<div class="gen-node" data-action="open-detail" data-idx="' + fi + '" style="cursor:pointer">' +
           '<span style="font-size:13px;margin-right:6px">' + icon + '</span>' +
           '<span style="color:var(--accent2);font-weight:600;margin-right:6px">' + escapeHTML(found.id) + '</span>' +
           '<span style="color:var(--text2)">' + truncEsc(found.title, 48) + '</span>' +
@@ -3033,6 +3029,57 @@ document.getElementById('detail-overlay').addEventListener('click', closeDetail)
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDetail();
+});
+
+// Global event delegation — replaces all inline onclick handlers
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('[data-action]');
+  if (!el) return;
+
+  var action = el.dataset.action;
+
+  switch (action) {
+    case 'switch-view':
+      switchView(el.dataset.view);
+      break;
+    case 'explore-area':
+      goExploreArea(el.dataset.area);
+      break;
+    case 'explore-db':
+      goExploreDB(el.dataset.db);
+      break;
+    case 'close-detail':
+      closeDetail();
+      break;
+    case 'open-detail':
+      openDetailByIdx(parseInt(el.dataset.idx, 10));
+      break;
+    case 'filter-tag':
+      filterByTag(el.dataset.tag);
+      break;
+    case 'toggle-opp-entries':
+      toggleOppEntries(el.dataset.oppId, JSON.parse(el.dataset.indices), el.dataset.tag, el.dataset.rule);
+      break;
+    case 'suggest-investigation':
+      e.stopPropagation();
+      suggestInvestigation(el.dataset.tag, el.dataset.oppId);
+      break;
+    case 'new-investigation':
+      openNewInvestigationForm();
+      break;
+    case 'select-inv':
+      selectInv(el.dataset.invId);
+      break;
+    case 'transition-inv':
+      transitionInv(el.dataset.invId, el.dataset.nextState);
+      break;
+    case 'close-proposal-form':
+      closeProposalForm();
+      break;
+    case 'save-proposal':
+      saveProposalAsInvestigation();
+      break;
+  }
 });
 
 /* ═══════════════════════════════════════════════════════════════
@@ -3308,7 +3355,7 @@ function renderIntelligence() {
   const maxFreq = topTags.length ? freq[topTags[0]] : 1;
   document.getElementById('intel-top-tags').innerHTML = topTags.map(function(t) {
     const pct = Math.round(freq[t] / maxFreq * 100);
-    return '<div class="intel-tag-row" onclick="filterByTag(\'' + escapeJSString(t) + '\')">' +
+    return '<div class="intel-tag-row" data-action="filter-tag" data-tag="' + escapeHTML(t) + '">' +
       '<span class="intel-tag-name">' + escapeHTML(t) + '</span>' +
       '<div class="intel-tag-bar-wrap"><div class="intel-tag-bar" style="width:' + pct + '%"></div></div>' +
       '<span class="intel-tag-count">' + freq[t] + '</span></div>';
@@ -3326,7 +3373,7 @@ function renderIntelligence() {
         const dots  = areas.map(function(a) {
           return '<span class="cand-area-dot" style="background:' + (areaColors[a] || '#888') + '" title="' + escapeHTML(AREA_META[a] ? AREA_META[a].label : a) + '"></span>';
         }).join('');
-        return '<div class="intel-tag-row" onclick="filterByTag(\'' + escapeJSString(t) + '\')">' +
+        return '<div class="intel-tag-row" data-action="filter-tag" data-tag="' + escapeHTML(t) + '">' +
           '<span class="intel-tag-name">' + escapeHTML(t) + '</span>' +
           '<span style="display:flex;gap:3px;margin:0 6px">' + dots + '</span>' +
           '<span class="intel-tag-count">' + freq[t] + '</span></div>';
@@ -3341,7 +3388,7 @@ function renderIntelligence() {
   document.getElementById('intel-hubs').innerHTML = hubs.length
     ? hubs.map(function(x) {
         const idx = x.dataIndex;
-        return '<div class="intel-hub-row" onclick="openDetailByIdx(' + idx + ')">' +
+        return '<div class="intel-hub-row" data-action="open-detail" data-idx="' + idx + '">' +
           '<span class="intel-hub-id">' + escapeHTML(x.e.id) + '</span>' +
           '<span class="intel-hub-title">' + truncEsc(x.e.title, 38) + '</span>' +
           '<span class="intel-hub-score">' + x.score + ' rel</span></div>';
@@ -3397,8 +3444,8 @@ function renderIntelligence() {
         '<div class="opp-footer">' +
           '<span class="opp-evidence">regla: ' + escapeHTML(opp.rule) + ' · evidencia: tag_frequency · confianza: ' + escapeHTML(opp.confidence) + '</span>' +
           '<div class="opp-actions">' +
-            '<button class="opp-btn opp-btn-secondary" id="btn-entries-' + escapeHTML(opp.id) + '" onclick="toggleOppEntries(\'' + escapeJSString(opp.id) + '\',' + JSON.stringify(opp.entryIndices) + ',\'' + escapeJSString(opp.tag) + '\',\'' + escapeJSString(opp.rule) + '\')">Ver entradas (' + opp.entryIndices.length + ') ↓</button>' +
-            '<button class="opp-btn opp-btn-primary" onclick="suggestInvestigation(\'' + escapeJSString(opp.tag) + '\',\'' + escapeJSString(opp.id) + '\')">💡 Sugerir investigación</button>' +
+            '<button class="opp-btn opp-btn-secondary" id="btn-entries-' + escapeHTML(opp.id) + '" data-action="toggle-opp-entries" data-opp-id="' + escapeHTML(opp.id) + '" data-indices="' + escapeHTML(JSON.stringify(opp.entryIndices)) + '" data-tag="' + escapeHTML(opp.tag) + '" data-rule="' + escapeHTML(opp.rule) + '">Ver entradas (' + opp.entryIndices.length + ') ↓</button>' +
+            '<button class="opp-btn opp-btn-primary" data-action="suggest-investigation" data-tag="' + escapeHTML(opp.tag) + '" data-opp-id="' + escapeHTML(opp.id) + '">💡 Sugerir investigación</button>' +
           '</div>' +
         '</div>' +
         '<div class="opp-entries-panel" id="entries-' + escapeHTML(opp.id) + '" style="display:none"></div>' +
@@ -3428,11 +3475,11 @@ function renderIntelligence() {
   const series = computeSeries();
   document.getElementById('intel-series').innerHTML = series.length
     ? series.map(function(s) {
-        return '<div class="series-card" onclick="filterByTag(\'' + escapeJSString(s[0]) + '\')">' +
+        return '<div class="series-card" data-action="filter-tag" data-tag="' + escapeHTML(s[0]) + '">' +
           '<span style="font-size:13px">✍️</span>' +
           '<span class="series-name">' + escapeHTML(s[0]) + '</span>' +
           '<span class="series-count">' + s[1] + ' artículos</span>' +
-          '<button class="opp-btn opp-btn-primary" style="font-size:10px;padding:3px 8px" onclick="event.stopPropagation();suggestInvestigation(\'' + escapeJSString(s[0]) + '\',\'series-r3-' + escapeJSString(s[0].replace(/\s/g,'_')) + '\')">💡 Sugerir inv.</button>' +
+          '<button class="opp-btn opp-btn-primary" style="font-size:10px;padding:3px 8px" data-action="suggest-investigation" data-tag="' + escapeHTML(s[0]) + '" data-opp-id="series-r3-' + escapeHTML(s[0].replace(/\s/g,'_')) + '">💡 Sugerir inv.</button>' +
         '</div>';
       }).join('')
     : '<div class="gen-empty">No se detectan series con ≥4 artículos en los datos actuales.</div>';
@@ -3493,14 +3540,14 @@ function renderInvList() {
       '<div class="inv-empty-icon">🔬</div>' +
       '<div class="inv-empty-title">Sin investigaciones</div>' +
       '<div class="inv-empty-sub">Crea tu primera investigación desde el botón superior, o genera una propuesta desde Intelligence.</div>' +
-      '<button class="btn-new-inv" onclick="openNewInvestigationForm()" style="margin:0 auto">+ Nueva investigación</button>' +
+      '<button class="btn-new-inv" data-action="new-investigation" style="margin:0 auto">+ Nueva investigación</button>' +
       '</div>';
     return;
   }
   listEl.innerHTML = INVESTIGATIONS.map(function(inv) {
     const isSelected = state.selectedInv && state.selectedInv.id === inv.id;
     const statusBadge = INV_STATE_LABELS[inv.status] || escapeHTML(inv.status);
-    return '<div class="inv-card' + (isSelected ? ' selected' : '') + (inv.isDemo ? ' is-demo' : '') + '" onclick="selectInv(\'' + escapeJSString(inv.id) + '\')">' +
+    return '<div class="inv-card' + (isSelected ? ' selected' : '') + (inv.isDemo ? ' is-demo' : '') + '" data-action="select-inv" data-inv-id="' + escapeHTML(inv.id) + '">' +
       '<div class="inv-card-head">' +
         '<span class="inv-card-id">' + escapeHTML(inv.id) + '</span>' +
         '<span class="inv-status-badge ' + escapeHTML(inv.status) + '">' + statusBadge + '</span>' +
@@ -3542,7 +3589,7 @@ function renderInvDetail(inv) {
     const isPromote = nextState === 'active' || nextState === 'concluded';
     const btnClass = isDanger ? 'state-btn danger' : (isPromote ? 'state-btn promote' : 'state-btn');
     const label = INV_STATE_LABELS[nextState] || nextState;
-    return '<button class="' + btnClass + '" onclick="transitionInv(\'' + escapeJSString(inv.id) + '\',\'' + escapeJSString(nextState) + '\')" title="Cambiar estado a: ' + escapeHTML(nextState) + '">' + label + '</button>';
+    return '<button class="' + btnClass + '" data-action="transition-inv" data-inv-id="' + escapeHTML(inv.id) + '" data-next-state="' + escapeHTML(nextState) + '" title="Cambiar estado a: ' + escapeHTML(nextState) + '">' + label + '</button>';
   }).join('');
 
   detailWrap.innerHTML =
@@ -3591,7 +3638,7 @@ function renderInvDetail(inv) {
             ? '<div>' + resolvedSources.map(function(e) {
                 const meta = DB_META[e.db] || { color:'#888', icon:'📄' };
                 const idx  = DATA.findIndex(function(d){ return d === e; });
-                return '<div class="inv-source-row" onclick="openDetailByIdx(' + idx + ')">' +
+                return '<div class="inv-source-row" data-action="open-detail" data-idx="' + idx + '">' +
                   '<span class="inv-source-id" style="color:' + meta.color + '">' + escapeHTML(e.id) + '</span>' +
                   '<span class="inv-source-title">' + truncEsc(e.title, 50) + '</span>' +
                   '<span class="inv-source-db">' + meta.icon + '</span>' +
@@ -3641,7 +3688,7 @@ function openNewInvestigationForm(prefill) {
     '<div class="proposal-form">' +
       '<div class="proposal-form-header">' +
         '<div class="proposal-form-title">💡 <span>Nueva investigación</span> <span class="proposal-label">BORRADOR</span></div>' +
-        '<button class="proposal-cancel" onclick="closeProposalForm()">✕ Cancelar</button>' +
+        '<button class="proposal-cancel" data-action="close-proposal-form">✕ Cancelar</button>' +
       '</div>' +
       (prefill.evidence ? '<div class="proposal-evidence"><div class="proposal-evidence-label">Generada por Intelligence</div>' +
         'Etiqueta: <strong>' + escapeHTML(prefill.tag || '—') + '</strong> · ' +
@@ -3653,7 +3700,7 @@ function openNewInvestigationForm(prefill) {
       '<div class="proposal-field"><label>Pregunta central</label>' +
         '<input class="proposal-input" id="pf-question" placeholder="¿Cuál es la pregunta que guía esta investigación?"></div>' +
       '<div class="proposal-actions">' +
-        '<button class="proposal-save" onclick="saveProposalAsInvestigation()">✓ Guardar como investigación</button>' +
+        '<button class="proposal-save" data-action="save-proposal">✓ Guardar como investigación</button>' +
       '</div>' +
     '</div>';
   formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -3724,7 +3771,7 @@ function toggleOppEntries(oppId, entryIndices, tag, rule) {
       var e = DATA[idx];
       if (!e) return '';
       var meta = DB_META[e.db] || { color: '#888', icon: '📄' };
-      return '<div class="opp-entry-row" onclick="openDetailByIdx(' + idx + ')">' +
+      return '<div class="opp-entry-row" data-action="open-detail" data-idx="' + idx + '">' +
         '<span class="opp-entry-id" style="color:' + meta.color + '">' + escapeHTML(e.id) + '</span>' +
         '<span class="opp-entry-title">' + truncEsc(e.title, 55) + '</span>' +
         '<span class="opp-entry-db">' + meta.icon + ' ' + escapeHTML(e.db.replace(/^\S+\s/, '')) + '</span>' +
