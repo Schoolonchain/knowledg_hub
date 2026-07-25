@@ -1,6 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
    INVESTIGATIONS ENGINE
 ═══════════════════════════════════════════════════════════════ */
+import { DATA, DB_META, INVESTIGATIONS } from './data.js';
+import { state, switchView } from './state.js';
+import { escapeHTML, truncEsc } from './sanitize.js';
+import { computeTagFrequencies, productionCountForTag } from './intelligence.js';
 
 // Máquina de estados: transiciones válidas
 const INV_TRANSITIONS = {
@@ -34,7 +38,7 @@ const INV_STATE_BTN_LABELS = {
   abandoned: 'Abandonar'
 };
 
-function renderInvestigations() {
+export function renderInvestigations() {
   renderInvList();
   if (state.selectedInv) {
     renderInvDetail(state.selectedInv);
@@ -77,7 +81,7 @@ function renderInvList() {
   }).join('');
 }
 
-function selectInv(id) {
+export function selectInv(id) {
   const inv = INVESTIGATIONS.find(function(i) { return i.id === id; });
   if (!inv) return;
   state.selectedInv = inv;
@@ -180,7 +184,7 @@ function renderInvDetail(inv) {
     '</div>';
 }
 
-function transitionInv(id, nextState) {
+export function transitionInv(id, nextState) {
   const inv = INVESTIGATIONS.find(function(i) { return i.id === id; });
   if (!inv) return;
   if (inv.isDemo) { alert('Esta es una investigación de demostración y no puede cambiar de estado.'); return; }
@@ -193,7 +197,7 @@ function transitionInv(id, nextState) {
   renderInvestigations();
 }
 
-function openNewInvestigationForm(prefill) {
+export function openNewInvestigationForm(prefill) {
   prefill = prefill || {};
   const formWrap = document.getElementById('proposal-form-wrap');
   formWrap.style.display = 'block';
@@ -219,14 +223,14 @@ function openNewInvestigationForm(prefill) {
   formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function closeProposalForm() {
+export function closeProposalForm() {
   const formWrap = document.getElementById('proposal-form-wrap');
   formWrap.style.display = 'none';
   formWrap.innerHTML = '';
   state.pendingProposal = null;
 }
 
-function saveProposalAsInvestigation() {
+export function saveProposalAsInvestigation() {
   const title    = (document.getElementById('pf-title')    || {}).value || '';
   const question = (document.getElementById('pf-question') || {}).value || '';
   if (!title.trim()) { alert('El título es obligatorio.'); return; }
@@ -265,7 +269,7 @@ function saveProposalAsInvestigation() {
 
 // Expande/contrae el panel de entradas de una oportunidad
 // entryIndices: array de dataIndex reales — sin DATA.indexOf()
-function toggleOppEntries(oppId, entryIndices, tag, rule) {
+export function toggleOppEntries(oppId, entryIndices, tag, rule) {
   var panel  = document.getElementById('entries-' + oppId);
   var btn    = document.getElementById('btn-entries-' + oppId);
   if (!panel || !btn) return;
@@ -305,7 +309,7 @@ function toggleOppEntries(oppId, entryIndices, tag, rule) {
 }
 
 // Llamado desde Intelligence al pulsar "Sugerir investigación"
-function suggestInvestigation(tag, oppId) {
+export function suggestInvestigation(tag, oppId) {
   // La propuesta NO se guarda como investigación. El usuario decide.
   state.pendingProposal = {
     id: oppId,

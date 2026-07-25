@@ -13,6 +13,8 @@
    Las etiquetas no listadas explícitamente se tratan como "thematic".
    La lista es CONSERVADORA: solo certezas, no inferencias.
 ═══════════════════════════════════════════════════════════════ */
+import { DATA, DB_META, AREA_META, RELATIONS, CONCEPTS, ENTITIES } from './data.js';
+import { escapeHTML, truncEsc } from './sanitize.js';
 
 const TAG_CLASSIFIER = {
   // ── Nivel / dificultad ────────────────────────────────────────
@@ -82,7 +84,7 @@ const CONSUMPTION_DBS = ['💻 TLDR Dev','🔐 El Rincón del Hacker','🔎 OSIN
 const KNOWLEDGE_DBS  = ['📚 Biblioteca','🏷️ Glosario de Etiquetas','📖 Glosario TLDR'];
 
 // Calcula la frecuencia de todas las etiquetas en DATA
-function computeTagFrequencies() {
+export function computeTagFrequencies() {
   const freq = {};
   const byArea = {};   // tag → Set de áreas
   const byDB   = {};   // tag → { dbName: count }
@@ -101,7 +103,7 @@ function computeTagFrequencies() {
 }
 
 // Calcula cuántas entradas de producción tienen una etiqueta
-function productionCountForTag(tag, byDB) {
+export function productionCountForTag(tag, byDB) {
   let count = 0;
   PRODUCTION_DBS.forEach(function(db) {
     count += (byDB[tag] && byDB[tag][db]) || 0;
@@ -217,7 +219,7 @@ function computeCandidates(freq, byArea) {
     .slice(0, 12);
 }
 
-function renderIntelligence() {
+export function renderIntelligence() {
   const { freq, byArea, byDB } = computeTagFrequencies();
 
   // Badge de modo

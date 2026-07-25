@@ -3,6 +3,18 @@
    Solo lectura. No modifica DATA.
    Llamar: runIntegrityAudit() → objeto con todos los resultados.
 ═══════════════════════════════════════════════════════════════ */
+import { DATA, DB_META, AREA_MAP, SYSTEM_STATE, INVESTIGATIONS } from './data.js';
+import { ciberCount, techCount, criptoCount } from './state.js';
+import { escapeHTML } from './sanitize.js';
+
+// Capture static HTML counter values at module load time,
+// before bootKnowledgeHub() overwrites them (C-1 audit).
+// ES modules are deferred, so the DOM is ready but boot hasn't run yet.
+const _staticCounters = {};
+['nc-total','h-total','exp-total','nc-ciber','nc-tech','nc-cripto','nc-inv'].forEach(function(id) {
+  const el = document.getElementById(id);
+  if (el) _staticCounters[id] = el.textContent.trim();
+});
 
 function extractNotionIdFromUrl(url) {
   if (!url) return null;
@@ -10,7 +22,7 @@ function extractNotionIdFromUrl(url) {
   return m ? m[1] : null;
 }
 
-function runIntegrityAudit() {
+export function runIntegrityAudit() {
   const results = {
     meta: {
       timestamp: new Date().toISOString(),
@@ -111,7 +123,6 @@ function runIntegrityAudit() {
 
   // E — Relaciones no resueltas
   const allNotionIds = new Set(DATA.map(function(e) { return e.notionId; }).filter(Boolean));
-  // También añadir hashes derivables de URLs (para referencias que aún no tienen notionId explícito)
   DATA.forEach(function(e) {
     if (e.url) {
       const h = extractNotionIdFromUrl(e.url);
@@ -128,11 +139,9 @@ function runIntegrityAudit() {
       (e.entrevistas   || []).map(function(r){ return {ref:r, field:'entrevistas'}; })
     );
     allRefs.forEach(function(item) {
-      // Resolver: ¿existe alguna entrada cuya URL incluye este hash?
       const resolved = allNotionIds.has(item.ref) ||
         DATA.some(function(d) { return d.url && d.url.replace(/-/g,'').includes(item.ref); });
       if (!resolved) {
-        // Agrupar por prefijo para no listar 65 líneas individuales
         const prefix = item.ref.substring(0, 8);
         const existing = results.unresolvedRelations.find(function(x) { return x.refPrefix === prefix && x.field === item.field; });
         if (existing) {
@@ -152,8 +161,6 @@ function runIntegrityAudit() {
   });
 
   // Estado general
-  // Un duplicado de URL causado por el mismo par que un duplicado de notionId
-  // no se cuenta como warning adicional — es el mismo problema, no dos problemas.
   const nidPairs = new Set(results.duplicateNotionIds.flatMap(function(d){ return d.entries.map(function(e){ return e.dataIndex; }); }).sort().join(','));
   const urlOnlyDups = results.duplicateUrls.filter(function(d) {
     const urlIdxs = d.entries.map(function(e){ return e.dataIndex; }).sort().join(',');
@@ -179,7 +186,7 @@ function runIntegrityAudit() {
    SYSTEM INTEGRITY VIEW
 ═══════════════════════════════════════════════════════════════ */
 
-function renderIntegrity() {
+export function renderIntegrity() {
   const audit = runIntegrityAudit();
   const wrap  = document.getElementById('integrity-wrap');
   if (!wrap) return;
@@ -189,8 +196,6 @@ function renderIntegrity() {
   const statusColor  = statusColors[audit.status];
 
   // ── SECCIÓN A: Anomalías AUTOMÁTICAS ─────────────────────────────
-  // Todo lo que sale de runIntegrityAudit() puro.
-  // La causa es estructural, no semántica.
   const autoAnomalies = [];
 
   audit.duplicateIds.forEach(function(d) {
@@ -205,8 +210,6 @@ function renderIntegrity() {
   });
 
   audit.duplicateNotionIds.forEach(function(d) {
-    // La causa aquí es estrictamente lo que la máquina puede saber:
-    // dos entradas tienen el mismo hash de notionId. Nada más.
     autoAnomalies.push({
       severity:'warning', icon:'⚠️',
       title: 'notionId duplicado: …' + d.notionId.slice(-12),
@@ -218,7 +221,6 @@ function renderIntegrity() {
   });
 
   audit.duplicateUrls.forEach(function(d) {
-    // Solo mostrar si no es ya cubierto por el duplicado de notionId con las mismas entradas
     const sameEntries = audit.duplicateNotionIds.some(function(n){
       return n.entries.length === d.entries.length &&
         n.entries.every(function(ne){ return d.entries.some(function(ue){ return ue.dataIndex === ne.dataIndex; }); });
@@ -291,8 +293,6 @@ function renderIntegrity() {
   });
 
   // ── SECCIÓN B: Anomalías DOCUMENTADAS ────────────────────────────
-  // Añadidas manualmente mediante _dataIntegrityIssue en DATA.
-  // Representan conocimiento humano que la máquina no puede deducir.
   const docAnomalies = audit.documentedIssues.map(function(d) {
     var sev = d.issue.severity || 'warning';
     return {

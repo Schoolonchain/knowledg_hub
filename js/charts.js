@@ -1,7 +1,12 @@
 /* ═══════════════════════════════════════════════════════════════
    CHARTS
 ═══════════════════════════════════════════════════════════════ */
-function buildDonut() {
+import { DATA, DB_META } from './data.js';
+import { DB_LIST, dbCounts, maxCount } from './state.js';
+import { escapeHTML } from './sanitize.js';
+import { goExploreDB } from './explore.js';
+
+export function buildDonut() {
   const svg    = document.getElementById('donut-svg');
   const legend = document.getElementById('donut-legend');
   const total  = DATA.length;
@@ -35,7 +40,7 @@ function buildDonut() {
   });
 }
 
-function buildDist() {
+export function buildDist() {
   const el     = document.getElementById('dist-bars');
   const sorted = [...DB_LIST].sort((a,b) => dbCounts[b] - dbCounts[a]);
   el.innerHTML = '';

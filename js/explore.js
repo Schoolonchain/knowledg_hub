@@ -1,7 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
    EXPLORE — CHIPS
 ═══════════════════════════════════════════════════════════════ */
-function buildChips() {
+import { DATA, AREA_META, DB_META, AREA_MAP } from './data.js';
+import { state, DB_LIST, switchView, clearSearch } from './state.js';
+import { escapeHTML } from './sanitize.js';
+
+export function buildChips() {
   // Area chips
   const areaEl = document.getElementById('area-chips');
   areaEl.innerHTML = '';
@@ -89,7 +93,7 @@ function filtered() {
 }
 
 // Filtra por etiqueta exacta — no realiza búsqueda textual global
-function filterByTag(tag) {
+export function filterByTag(tag) {
   state.activeArea = null;
   state.activeDB   = 'all';
   state.activeTag  = tag;
@@ -103,7 +107,7 @@ function filterByTag(tag) {
 }
 
 // Índice global para lookup por data-idx
-function rowHTML(e, idx) {
+export function rowHTML(e, idx) {
   const meta = DB_META[e.db] || { color:'#888', icon:'📄' };
   const col  = meta.color;
   return `<tr class="data-row" data-idx="${idx}">
@@ -116,7 +120,7 @@ function rowHTML(e, idx) {
   </tr>`;
 }
 
-function renderTable() {
+export function renderTable() {
   const pairs = filtered();
   const total = DATA.length;
   document.getElementById('result-count').textContent = pairs.length + ' de ' + total + ' entradas';
@@ -128,6 +132,33 @@ function renderTable() {
     return;
   }
   tbody.innerHTML = pairs.map(function(p) { return rowHTML(p.entry, p.dataIndex); }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPLORE NAVIGATION — moved from state.js to break circular deps
+═══════════════════════════════════════════════════════════════ */
+// Navegación desde fuera del Explore (sidebar, home cards, pilares)
+// → limpia búsqueda activa para no confundir
+export function goExploreArea(area) {
+  if (state.view !== 'explore') clearSearch();
+  state.activeArea = area;
+  state.activeDB   = 'all';
+  state.activeTag  = null;
+  state.activeSeries = null;
+  switchView('explore');
+  buildChips();
+  renderTable();
+}
+
+export function goExploreDB(db) {
+  if (state.view !== 'explore') clearSearch();
+  state.activeDB   = db || 'all';
+  state.activeArea = null;
+  state.activeTag  = null;
+  state.activeSeries = null;
+  switchView('explore');
+  buildChips();
+  renderTable();
 }
 
 /* ═══════════════════════════════════════════════════════════════

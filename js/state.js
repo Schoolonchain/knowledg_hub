@@ -1,7 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════════════════════════ */
-let state = {
+import { DATA, AREA_MAP } from './data.js';
+
+export let state = {
   view: 'home',
   activeArea: null,
   activeDB: 'all',
@@ -16,14 +18,14 @@ let state = {
 /* ═══════════════════════════════════════════════════════════════
    DERIVED DATA
 ═══════════════════════════════════════════════════════════════ */
-let DB_LIST = [];
-let dbCounts = {};
-let maxCount = 0;
-let ciberCount = 0;
-let techCount = 0;
-let criptoCount = 0;
+export let DB_LIST = [];
+export let dbCounts = {};
+export let maxCount = 0;
+export let ciberCount = 0;
+export let techCount = 0;
+export let criptoCount = 0;
 
-function recomputeDerivedData() {
+export function recomputeDerivedData() {
   DB_LIST = [...new Set(DATA.map(d => d.db))];
   dbCounts = {};
   DB_LIST.forEach(db => dbCounts[db] = DATA.filter(d => d.db === db).length);
@@ -36,54 +38,15 @@ function recomputeDerivedData() {
 recomputeDerivedData();
 
 /* ═══════════════════════════════════════════════════════════════
-   INIT STATIC COUNTS
+   RENDERER REGISTRY — breaks circular deps with view modules
 ═══════════════════════════════════════════════════════════════ */
-function initCounts() {
-  const total      = DATA.length;
-  const artCount   = DATA.filter(d => d.db === '✍️ Artículos propios').length;
-  const glosCount  = DATA.filter(d => d.db === '🏷️ Glosario de Etiquetas' || d.db === '📖 Glosario TLDR').length;
-  const invActive  = INVESTIGATIONS.filter(i => i.status === 'active' || i.status === 'draft').length;
-
-  document.getElementById('h-total').textContent    = total;
-  document.getElementById('exp-total').textContent  = total;
-  document.getElementById('nc-total').textContent   = total;
-  document.getElementById('nc-ciber').textContent   = ciberCount;
-  document.getElementById('nc-tech').textContent    = techCount;
-  document.getElementById('nc-cripto').textContent  = criptoCount;
-  document.getElementById('a-ciber').textContent    = ciberCount + ' entradas';
-  document.getElementById('a-tech').textContent     = techCount  + ' entradas';
-  document.getElementById('a-cripto').textContent   = criptoCount + ' entradas';
-  document.getElementById('nc-inv').textContent     = invActive || INVESTIGATIONS.length;
-
-  // Badge de integridad — ejecutar auditoría en boot para mostrar estado en sidebar
-  const _bootAudit = runIntegrityAudit();
-  const _intBadgeEl = document.getElementById('nc-integrity');
-  if (_intBadgeEl) {
-    if (_bootAudit.status === 'HEALTHY') {
-      _intBadgeEl.textContent = '✅';
-      _intBadgeEl.style.color = '#5ba85b';
-    } else if (_bootAudit.status === 'WARNING') {
-      _intBadgeEl.textContent = '⚠️ ' + _bootAudit._counts.warning;
-    } else {
-      _intBadgeEl.textContent = '🔴 ' + _bootAudit._counts.critical;
-    }
-  }
-
-  // Stats dinámicos
-  const statArtEl   = document.getElementById('h-art');
-  const statGlosEl  = document.getElementById('h-glos');
-  const expArtEl    = document.getElementById('exp-art');
-  const expGlosEl   = document.getElementById('exp-glos');
-  if (statArtEl)  statArtEl.textContent  = artCount;
-  if (statGlosEl) statGlosEl.textContent = glosCount;
-  if (expArtEl)   expArtEl.textContent   = artCount;
-  if (expGlosEl)  expGlosEl.textContent  = glosCount;
-}
+const renderers = {};
+export function registerRenderer(view, fn) { renderers[view] = fn; }
 
 /* ═══════════════════════════════════════════════════════════════
    VIEW SWITCHING
 ═══════════════════════════════════════════════════════════════ */
-function switchView(v) {
+export function switchView(v) {
   state.view = v;
 
   document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
@@ -115,39 +78,11 @@ function switchView(v) {
   document.getElementById('topbar-sub').textContent   = subs[v]   || '';
   document.getElementById('home-btn').style.display = v === 'home' ? 'none' : 'flex';
 
-  if (v === 'explore')       renderTable();
-  if (v === 'intelligence')  renderIntelligence();
-  if (v === 'investigations') renderInvestigations();
-  if (v === 'integrity')     renderIntegrity();
+  if (renderers[v]) renderers[v]();
 }
 
-function clearSearch() {
+export function clearSearch() {
   state.query = '';
   const searchEl = document.getElementById('search');
   if (searchEl) searchEl.value = '';
 }
-
-// Navegación desde fuera del Explore (sidebar, home cards, pilares)
-// → limpia búsqueda activa para no confundir
-function goExploreArea(area) {
-  if (state.view !== 'explore') clearSearch();
-  state.activeArea = area;
-  state.activeDB   = 'all';
-  state.activeTag  = null;
-  state.activeSeries = null;
-  switchView('explore');
-  buildChips();
-  renderTable();
-}
-
-function goExploreDB(db) {
-  if (state.view !== 'explore') clearSearch();
-  state.activeDB   = db || 'all';
-  state.activeArea = null;
-  state.activeTag  = null;
-  state.activeSeries = null;
-  switchView('explore');
-  buildChips();
-  renderTable();
-}
-

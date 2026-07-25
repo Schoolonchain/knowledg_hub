@@ -1,7 +1,12 @@
 /* ═══════════════════════════════════════════════════════════════
    HOME — DB MINI GRID
 ═══════════════════════════════════════════════════════════════ */
-function buildHomeDBGrid() {
+import { DATA, DB_META } from './data.js';
+import { DB_LIST, dbCounts, maxCount } from './state.js';
+import { escapeHTML } from './sanitize.js';
+import { goExploreDB, rowHTML } from './explore.js';
+
+export function buildHomeDBGrid() {
   const el = document.getElementById('home-db-grid');
   el.innerHTML = '';
   DB_LIST.forEach(db => {
@@ -23,7 +28,7 @@ function buildHomeDBGrid() {
 /* ═══════════════════════════════════════════════════════════════
    HOME — RECENT TABLE (últimas 12 entradas)
 ═══════════════════════════════════════════════════════════════ */
-function buildHomeRecent() {
+export function buildHomeRecent() {
   const tbody  = document.getElementById('home-tbody');
   const start  = Math.max(0, DATA.length - 12);
   const recent = DATA.slice(start).map(function(e, i) { return { entry: e, dataIndex: start + i }; }).reverse();

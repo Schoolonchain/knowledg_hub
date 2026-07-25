@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
    DATA
 ═══════════════════════════════════════════════════════════════ */
-const DB_META = {
+export const DB_META = {
   "✍️ Artículos propios":     { color:"#4f86c6", area:"cripto", icon:"✍️", areaLabel:"Finanzas & Cripto" },
   "💻 TLDR Dev":               { color:"#5ba85b", area:"tech",   icon:"💻", areaLabel:"Tecnología & Desarrollo" },
   "🔐 El Rincón del Hacker":  { color:"#c45a5a", area:"ciber",  icon:"🔐", areaLabel:"Ciberseguridad & OSINT" },
@@ -12,13 +12,13 @@ const DB_META = {
   "📖 Glosario TLDR":          { color:"#a0a05b", area:"tech",   icon:"📖", areaLabel:"Tecnología & Desarrollo" },
 };
 
-const AREA_META = {
+export const AREA_META = {
   ciber:  { label:"Ciberseguridad & OSINT", color:"#c45a5a", icon:"🔐" },
   tech:   { label:"Tecnología & Desarrollo",  color:"#5ba85b", icon:"💡" },
   cripto: { label:"Finanzas & Cripto",         color:"#c4a020", icon:"🧭" },
 };
 
-const AREA_MAP = {
+export const AREA_MAP = {
   ciber:  ["🔐 El Rincón del Hacker","🔎 OSINT Newsletter","🔓 PWN | Hacker Community","🏷️ Glosario de Etiquetas"],
   tech:   ["💻 TLDR Dev","📖 Glosario TLDR"],
   cripto: ["✍️ Artículos propios","📚 Biblioteca","🎙️ Entrevistas"],
@@ -28,7 +28,7 @@ const AREA_MAP = {
    SYSTEM STATE — para auditoría y sincronización con Notion
    Actualizar manualmente o vía script tras cada sync.
 ═══════════════════════════════════════════════════════════════ */
-const SYSTEM_STATE = {
+export const SYSTEM_STATE = {
   version:   "2.2.0",
   last_sync: "2026-07-23",
   total:     244,
@@ -108,7 +108,8 @@ const SYSTEM_STATE = {
   }
 };
 
-let DATA = [];
+export let DATA = [];
+export function setDATA(d) { DATA = d; }
 
 /* ═══════════════════════════════════════════════════════════════
    SYNC CONTRACT — Reglas para el sincronizador Notion → DATA
@@ -166,7 +167,7 @@ let DATA = [];
 
 
 // SYNC FROM NOTION — Conceptos estructurados (Nivel 2)
-const CONCEPTS = [
+export const CONCEPTS = [
   // Ejemplo de estructura (no poblado):
   // {
   //   id: "CON-001",
@@ -181,7 +182,7 @@ const CONCEPTS = [
 ];
 
 // SYNC FROM NOTION — Entidades concretas (Nivel 3)
-const ENTITIES = [
+export const ENTITIES = [
   // Ejemplo de estructura (no poblado):
   // {
   //   id: "ENT-001",
@@ -197,7 +198,7 @@ const ENTITIES = [
 // Tipos: about | mentions | illustrates | analyzes | involves | derived_from | continues | references
 //        related_to | is_part_of | contradicts | implements | exemplifies
 //        consumes | produces | explores
-const RELATIONS = [
+export const RELATIONS = [
   // Ejemplo de estructura (no poblado):
   // { source: "TDV-42", target: "CON-001", type: "about" }
 ];
@@ -205,4 +206,5 @@ const RELATIONS = [
 // INVESTIGATIONS — Procesos activos de comprensión
 // Máquina de estados: proposal → draft → active → paused → concluded → archived
 //                     draft → abandoned | active → abandoned
-let INVESTIGATIONS = [];
+export let INVESTIGATIONS = [];
+export function setINVESTIGATIONS(inv) { INVESTIGATIONS = inv; }

@@ -1,7 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
    DETAIL PANEL
 ═══════════════════════════════════════════════════════════════ */
-function openDetailByIdx(idx) {
+import { DATA, DB_META, AREA_META, RELATIONS, CONCEPTS, ENTITIES } from './data.js';
+import { state } from './state.js';
+import { escapeHTML, safeURL, truncEsc } from './sanitize.js';
+
+export function openDetailByIdx(idx) {
   const entry = DATA[idx];
   if (!entry) return;
   state.selectedEntry = entry;
@@ -194,7 +198,7 @@ function openDetailByIdx(idx) {
   document.getElementById('main').classList.add('detail-open');
 }
 
-function closeDetail() {
+export function closeDetail() {
   document.getElementById('detail-panel').classList.remove('open');
   document.getElementById('detail-overlay').classList.remove('active');
   document.getElementById('main').classList.remove('detail-open');
@@ -218,55 +222,4 @@ document.getElementById('detail-overlay').addEventListener('click', closeDetail)
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDetail();
-});
-
-// Global event delegation — replaces all inline onclick handlers
-document.addEventListener('click', function(e) {
-  var el = e.target.closest('[data-action]');
-  if (!el) return;
-
-  var action = el.dataset.action;
-
-  switch (action) {
-    case 'switch-view':
-      switchView(el.dataset.view);
-      break;
-    case 'explore-area':
-      goExploreArea(el.dataset.area);
-      break;
-    case 'explore-db':
-      goExploreDB(el.dataset.db);
-      break;
-    case 'close-detail':
-      closeDetail();
-      break;
-    case 'open-detail':
-      openDetailByIdx(parseInt(el.dataset.idx, 10));
-      break;
-    case 'filter-tag':
-      filterByTag(el.dataset.tag);
-      break;
-    case 'toggle-opp-entries':
-      toggleOppEntries(el.dataset.oppId, JSON.parse(el.dataset.indices), el.dataset.tag, el.dataset.rule);
-      break;
-    case 'suggest-investigation':
-      e.stopPropagation();
-      suggestInvestigation(el.dataset.tag, el.dataset.oppId);
-      break;
-    case 'new-investigation':
-      openNewInvestigationForm();
-      break;
-    case 'select-inv':
-      selectInv(el.dataset.invId);
-      break;
-    case 'transition-inv':
-      transitionInv(el.dataset.invId, el.dataset.nextState);
-      break;
-    case 'close-proposal-form':
-      closeProposalForm();
-      break;
-    case 'save-proposal':
-      saveProposalAsInvestigation();
-      break;
-  }
 });

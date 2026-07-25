@@ -81,3 +81,8 @@ export function safeLink(url, text, attrs = '') {
   if (href === '#') return `<span>${label}</span>`;
   return `<a href="${href}" target="_blank" rel="noopener"${attrs ? ' ' + attrs : ''}>${label}</a>`;
 }
+
+/**
+ * Alias for truncate — used throughout the app under this name.
+ */
+export const truncEsc = truncate;
