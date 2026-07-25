@@ -333,7 +333,8 @@ export function renderIntegrity() {
   Object.keys(counterMap).forEach(function(id) {
     var staticVal = _staticCounters[id];
     var realVal   = counterMap[id].fn();
-    if (staticVal && staticVal !== realVal) {
+    // Skip placeholders — a dash means the value is intentionally dynamic
+    if (staticVal && staticVal !== '—' && staticVal !== realVal) {
       coherenceIssues.push({
         code: 'C-1', severity: 'warning', icon: '⚠️',
         title: 'Valor HTML estático desactualizado: ' + counterMap[id].label,

@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
    BOOT — Entry point module
 ═══════════════════════════════════════════════════════════════ */
-import { DATA, INVESTIGATIONS, setDATA, setINVESTIGATIONS } from './data.js';
-import { state, switchView, registerRenderer, recomputeDerivedData, ciberCount, techCount, criptoCount } from './state.js';
+import { DATA, INVESTIGATIONS, AREA_MAP, SYSTEM_STATE, setDATA, setINVESTIGATIONS } from './data.js';
+import { state, switchView, registerRenderer, recomputeDerivedData, DB_LIST, ciberCount, techCount, criptoCount } from './state.js';
 import { buildHomeDBGrid, buildHomeRecent } from './home.js';
 import { buildChips, renderTable, goExploreDB, goExploreArea, filterByTag } from './explore.js';
 import { buildDonut, buildDist } from './charts.js';
@@ -115,8 +115,12 @@ function initCounts() {
   const artCount   = DATA.filter(d => d.db === '✍️ Artículos propios').length;
   const glosCount  = DATA.filter(d => d.db === '🏷️ Glosario de Etiquetas' || d.db === '📖 Glosario TLDR').length;
   const invActive  = INVESTIGATIONS.filter(i => i.status === 'active' || i.status === 'draft').length;
+  const dbCount    = DB_LIST.length;
   document.getElementById('h-total').textContent    = total;
+  document.getElementById('h-dbs').textContent      = dbCount;
   document.getElementById('exp-total').textContent  = total;
+  const expDbsEl = document.getElementById('exp-dbs');
+  if (expDbsEl) expDbsEl.textContent = dbCount;
   document.getElementById('nc-total').textContent   = total;
   document.getElementById('nc-ciber').textContent   = ciberCount;
   document.getElementById('nc-tech').textContent    = techCount;
@@ -124,6 +128,9 @@ function initCounts() {
   document.getElementById('a-ciber').textContent    = ciberCount + ' entradas';
   document.getElementById('a-tech').textContent     = techCount  + ' entradas';
   document.getElementById('a-cripto').textContent   = criptoCount + ' entradas';
+  document.getElementById('a-ciber-dbs').textContent  = AREA_MAP.ciber.length + ' bases de datos';
+  document.getElementById('a-tech-dbs').textContent   = AREA_MAP.tech.length + ' bases de datos';
+  document.getElementById('a-cripto-dbs').textContent  = AREA_MAP.cripto.length + ' bases de datos';
   document.getElementById('nc-inv').textContent     = invActive || INVESTIGATIONS.length;
   const _bootAudit = runIntegrityAudit();
   const _intBadgeEl = document.getElementById('nc-integrity');
@@ -144,6 +151,10 @@ function initCounts() {
   if (statGlosEl) statGlosEl.textContent = glosCount;
   if (expArtEl) expArtEl.textContent = artCount;
   if (expGlosEl) expGlosEl.textContent = glosCount;
+  const dateEl = document.getElementById('table-foot-date');
+  if (dateEl && SYSTEM_STATE.last_sync) {
+    dateEl.textContent = 'Actualizado ' + SYSTEM_STATE.last_sync;
+  }
 }
 
 // ── Boot ─────────────────────────────────────────────────────

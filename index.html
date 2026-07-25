@@ -29,7 +29,7 @@
     </button>
     <button class="nav-item" id="nav-explore" data-action="switch-view" data-view="explore">
       <span class="ni">🔍</span> Explorar
-      <span class="nav-count" id="nc-total">236</span>
+      <span class="nav-count" id="nc-total">—</span>
     </button>
 
     <button class="nav-item" id="nav-intelligence" data-action="switch-view" data-view="intelligence">
@@ -37,28 +37,28 @@
     </button>
     <button class="nav-item" id="nav-investigations" data-action="switch-view" data-view="investigations">
       <span class="ni">🔬</span> Investigaciones
-      <span class="nav-count" id="nc-inv">1</span>
+      <span class="nav-count" id="nc-inv">—</span>
     </button>
     <button class="nav-item active" id="nav-integrity" data-action="switch-view" data-view="integrity">
       <span class="ni">🩺</span> System Integrity
-      <span class="nav-count" id="nc-integrity" style="color: rgb(91, 168, 91);">✅</span>
+      <span class="nav-count" id="nc-integrity">—</span>
     </button>
 
     <div class="nav-section">Áreas</div>
     <button class="nav-item" data-action="explore-area" data-area="ciber">
       <div class="nav-dot" style="background:var(--ciber)"></div>
       Ciberseguridad
-      <span class="nav-count" id="nc-ciber">47</span>
+      <span class="nav-count" id="nc-ciber">—</span>
     </button>
     <button class="nav-item" data-action="explore-area" data-area="tech">
       <div class="nav-dot" style="background:var(--tech)"></div>
       Tecnología
-      <span class="nav-count" id="nc-tech">83</span>
+      <span class="nav-count" id="nc-tech">—</span>
     </button>
     <button class="nav-item" data-action="explore-area" data-area="cripto">
       <div class="nav-dot" style="background:var(--cripto)"></div>
       Finanzas &amp; Cripto
-      <span class="nav-count" id="nc-cripto">106</span>
+      <span class="nav-count" id="nc-cripto">—</span>
     </button>
 
     <div class="nav-section">Bases de datos</div>
@@ -149,19 +149,19 @@
         </p>
         <div class="hero-stats">
           <div class="hstat">
-            <div class="hstat-val" id="h-total">244</div>
+            <div class="hstat-val" id="h-total">—</div>
             <div class="hstat-lbl">Entradas indexadas</div>
           </div>
           <div class="hstat">
-            <div class="hstat-val" id="h-dbs">9</div>
+            <div class="hstat-val" id="h-dbs">—</div>
             <div class="hstat-lbl">Bases de datos</div>
           </div>
           <div class="hstat">
-            <div class="hstat-val" id="h-art">65</div>
+            <div class="hstat-val" id="h-art">—</div>
             <div class="hstat-lbl">Artículos propios</div>
           </div>
           <div class="hstat">
-            <div class="hstat-val" id="h-glos">67</div>
+            <div class="hstat-val" id="h-glos">—</div>
             <div class="hstat-lbl">Entradas de glosario</div>
           </div>
         </div>
@@ -232,8 +232,8 @@
           <div class="area-name">Ciberseguridad &amp; OSINT</div>
           <div class="area-desc">Newsletters, OSINT, vulnerabilidades, amenazas y análisis de seguridad.</div>
           <div class="area-footer">
-            <span class="area-count" style="color:var(--ciber)" id="a-ciber">47 entradas</span>
-            <span class="area-dbs">4 bases de datos</span>
+            <span class="area-count" style="color:var(--ciber)" id="a-ciber">— entradas</span>
+            <span class="area-dbs" id="a-ciber-dbs">— bases de datos</span>
           </div>
           <div class="area-bar" style="background:var(--ciber);width:100%"></div>
         </div>
@@ -242,8 +242,8 @@
           <div class="area-name">Tecnología &amp; Desarrollo</div>
           <div class="area-desc">IA, desarrollo, herramientas, frameworks y tendencias del sector tech.</div>
           <div class="area-footer">
-            <span class="area-count" style="color:var(--tech)" id="a-tech">83 entradas</span>
-            <span class="area-dbs">2 bases de datos</span>
+            <span class="area-count" style="color:var(--tech)" id="a-tech">— entradas</span>
+            <span class="area-dbs" id="a-tech-dbs">— bases de datos</span>
           </div>
           <div class="area-bar" style="background:var(--tech);width:100%"></div>
         </div>
@@ -252,8 +252,8 @@
           <div class="area-name">Finanzas &amp; Cripto</div>
           <div class="area-desc">On-chain, DeFi, tokens, análisis de mercado, entrevistas y más.</div>
           <div class="area-footer">
-            <span class="area-count" style="color:var(--cripto)" id="a-cripto">106 entradas</span>
-            <span class="area-dbs">2 bases de datos</span>
+            <span class="area-count" style="color:var(--cripto)" id="a-cripto">— entradas</span>
+            <span class="area-dbs" id="a-cripto-dbs">— bases de datos</span>
           </div>
           <div class="area-bar" style="background:var(--cripto);width:100%"></div>
         </div>
@@ -297,22 +297,22 @@
       <div class="stat-grid">
         <div class="stat-card">
           <div class="stat-label">Entradas totales</div>
-          <div class="stat-value stat-accent" id="exp-total">244</div>
+          <div class="stat-value stat-accent" id="exp-total">—</div>
           <div class="stat-sub">En el índice</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Bases de datos</div>
-          <div class="stat-value">9</div>
+          <div class="stat-value" id="exp-dbs">—</div>
           <div class="stat-sub">Activas</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Artículos propios</div>
-          <div class="stat-value" id="exp-art">65</div>
+          <div class="stat-value" id="exp-art">—</div>
           <div class="stat-sub">Publicados</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Glosario</div>
-          <div class="stat-value" id="exp-glos">67</div>
+          <div class="stat-value" id="exp-glos">—</div>
           <div class="stat-sub">GE + GT</div>
         </div>
       </div>
@@ -333,7 +333,7 @@
         <div class="table-wrap">
           <div class="table-meta">
             <span style="font-size:11px;color:var(--text2);font-weight:500">Índice maestro</span>
-            <span class="result-count" id="result-count">236 de 236 entradas</span>
+            <span class="result-count" id="result-count">— entradas</span>
           </div>
           <table>
             <thead>
@@ -346,8 +346,8 @@
             <tbody id="tbody"></tbody>
           </table>
           <div class="table-foot">
-            <span>Actualizado 21 jul 2026</span>
-            <span id="table-foot-count">236 resultados</span>
+            <span id="table-foot-date">—</span>
+            <span id="table-foot-count">—</span>
           </div>
         </div>
 
