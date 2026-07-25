@@ -4130,6 +4130,7 @@ function renderIntegrity() {
     'nc-ciber': { label: '#nc-ciber', fn: function(){ return String(ciberCount); } },
     'nc-tech':  { label: '#nc-tech', fn: function(){ return String(techCount); } },
     'nc-cripto':{ label: '#nc-cripto', fn: function(){ return String(criptoCount); } },
+    'nc-inv':   { label: '#nc-inv (investigations)', fn: function(){ return typeof INVESTIGATIONS !== 'undefined' ? String(INVESTIGATIONS.filter(function(i){ return i.status === 'active' || i.status === 'draft'; }).length) : undefined; } },
   };
   Object.keys(counterMap).forEach(function(id) {
     var staticVal = _staticCounters[id];
@@ -4207,11 +4208,28 @@ function renderIntegrity() {
     });
   });
 
+  // C-4: Constantes hardcodeadas que deberían ser dinámicas
+  var suspectValues = {};
+  suspectValues[236] = 'total histórico de entradas';
+  suspectValues[244] = 'total histórico de entradas';
+  suspectValues[325] = 'resolvedCount histórico';
+  if (typeof SYSTEM_STATE !== 'undefined' && SYSTEM_STATE.total != null) {
+    if (suspectValues[SYSTEM_STATE.total] && SYSTEM_STATE.total !== DATA.length) {
+      coherenceIssues.push({
+        code: 'C-4', severity: 'warning', icon: '⚠️',
+        title: 'SYSTEM_STATE.total contiene constante obsoleta: ' + SYSTEM_STATE.total,
+        detail: 'Coincide con ' + suspectValues[SYSTEM_STATE.total] + '. DATA tiene ' + DATA.length + ' entradas.',
+        cause: 'Valor hardcodeado que no se recalcula con cada sync.',
+        action: 'Eliminar SYSTEM_STATE o generarlo en sync-notion.mjs.',
+      });
+    }
+  }
+
   // C-5: Campos presentes en DATA pero no usados por las vistas
   var knownFields = new Set([
     'id','title','db','url','desc','etiquetas','area','fuente','fecha',
     'notionId','serie','anterior','siguiente','relacionadas','glosario',
-    'entrevistas','_dataIntegrityIssue'
+    'entrevistas','_dataIntegrityIssue','tipo','lectura','gravedad','urlFuente'
   ]);
   var unknownFields = {};
   DATA.forEach(function(e) {
