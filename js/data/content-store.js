@@ -19,7 +19,7 @@ export async function loadContent() {
     const payload = await res.json();
     if (!Array.isArray(payload.content)) throw new Error('content.json: payload inválido');
     setDATA(payload.content);
-    return;
+    return { generatedAt: payload.generatedAt || null };
   }
 
   // Future: src.type === 'api'

@@ -163,7 +163,15 @@ function initCounts() {
 async function bootKnowledgeHub() {
   let loadError = null;
   try {
-    await Promise.all([loadContent(), loadInvestigations()]);
+    const [contentMeta] = await Promise.all([loadContent(), loadInvestigations()]);
+    if (contentMeta && contentMeta.generatedAt) {
+      SYSTEM_STATE.last_sync = contentMeta.generatedAt.split('T')[0];
+    }
+    SYSTEM_STATE.total = DATA.length;
+    Object.keys(SYSTEM_STATE.dbs).forEach(function(dbId) {
+      var dbState = SYSTEM_STATE.dbs[dbId];
+      dbState.count = DATA.filter(function(d) { return d.db === dbState.name; }).length;
+    });
   } catch (error) {
     loadError = error;
     console.error('No se pudo cargar la sincronización JSON del Knowledge Hub.', error);

@@ -26,7 +26,9 @@ export const AREA_MAP = {
 
 /* ═══════════════════════════════════════════════════════════════
    SYSTEM STATE — para auditoría y sincronización con Notion
-   Actualizar manualmente o vía script tras cada sync.
+   Los valores de total, last_sync y dbs[*].count se parchean
+   automáticamente en boot.js tras cargar content.json.
+   Los metadatos estáticos (version, area, color) se mantienen aquí.
 ═══════════════════════════════════════════════════════════════ */
 export const SYSTEM_STATE = {
   version:   "2.2.0",
