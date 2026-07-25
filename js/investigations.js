@@ -5,6 +5,7 @@ import { DATA, DB_META, INVESTIGATIONS } from './data.js';
 import { state, switchView } from './state.js';
 import { escapeHTML, truncEsc } from './sanitize.js';
 import { computeTagFrequencies, productionCountForTag } from './intelligence.js';
+import { createInvestigation, transitionInvestigation } from './data/research-store.js';
 
 // Máquina de estados: transiciones válidas
 const INV_TRANSITIONS = {
@@ -190,8 +191,7 @@ export function transitionInv(id, nextState) {
   if (inv.isDemo) { alert('Esta es una investigación de demostración y no puede cambiar de estado.'); return; }
   const valid = INV_TRANSITIONS[inv.status] || [];
   if (!valid.includes(nextState)) { return; }
-  inv.status = nextState;
-  inv.updated = new Date().toISOString().split('T')[0];
+  transitionInvestigation(id, nextState);
   state.selectedInv = inv;
   document.getElementById('nc-inv').textContent = INVESTIGATIONS.filter(function(i) { return i.status === 'active' || i.status === 'draft'; }).length;
   renderInvestigations();
@@ -258,7 +258,7 @@ export function saveProposalAsInvestigation() {
     updated: today
   };
 
-  INVESTIGATIONS.push(inv);
+  createInvestigation(inv);
   closeProposalForm();
   state.selectedInv = inv;
   document.getElementById('nc-inv').textContent = INVESTIGATIONS.filter(function(i) {

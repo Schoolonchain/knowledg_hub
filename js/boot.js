@@ -1,8 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
    BOOT — Entry point module
 ═══════════════════════════════════════════════════════════════ */
-import { DATA, INVESTIGATIONS, AREA_MAP, SYSTEM_STATE, setDATA, setINVESTIGATIONS } from './data.js';
+import { DATA, INVESTIGATIONS, AREA_MAP, SYSTEM_STATE } from './data.js';
 import { state, switchView, registerRenderer, recomputeDerivedData, DB_LIST, ciberCount, techCount, criptoCount } from './state.js';
+import { loadContent } from './data/content-store.js';
+import { loadInvestigations } from './data/research-store.js';
 import { buildHomeDBGrid, buildHomeRecent } from './home.js';
 import { buildChips, renderTable, goExploreDB, goExploreArea, filterByTag } from './explore.js';
 import { buildDonut, buildDist } from './charts.js';
@@ -161,18 +163,7 @@ function initCounts() {
 async function bootKnowledgeHub() {
   let loadError = null;
   try {
-    const [contentResponse, investigationsResponse] = await Promise.all([
-      fetch('./data/content.json', { cache: 'no-store' }),
-      fetch('./data/investigations.json', { cache: 'no-store' }),
-    ]);
-    if (!contentResponse.ok) throw new Error('content.json HTTP ' + contentResponse.status);
-    if (!investigationsResponse.ok) throw new Error('investigations.json HTTP ' + investigationsResponse.status);
-    const contentPayload = await contentResponse.json();
-    const investigationsPayload = await investigationsResponse.json();
-    if (!Array.isArray(contentPayload.content)) throw new Error('content.json inválido');
-    if (!Array.isArray(investigationsPayload.investigations)) throw new Error('investigations.json inválido');
-    setDATA(contentPayload.content);
-    setINVESTIGATIONS(investigationsPayload.investigations);
+    await Promise.all([loadContent(), loadInvestigations()]);
   } catch (error) {
     loadError = error;
     console.error('No se pudo cargar la sincronización JSON del Knowledge Hub.', error);
