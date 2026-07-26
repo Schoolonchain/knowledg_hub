@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────── */
+:root {
+  --bg:      #0d0d1a;
+  --bg2:     #12121f;
+  --bg3:     #1a1a2e;
+  --bg4:     #1f1f38;
+  --border:  #1e1e35;
+  --border2: #2a2a48;
+  --text:    #ddddf0;
+  --text2:   #7777aa;
+  --text3:   #44445a;
+  --accent:  #6c63ff;
+  --accent2: #8b85ff;
+
+  /* área colors */
+  --ciber:  #c45a5a;
+  --tech:   #5ba85b;
+  --cripto: #c4a020;
+
+  /* DB colors */
+  --c-art:  #4f86c6;
+  --c-tldr: #5ba85b;
+  --c-rdh:  #c45a5a;
+  --c-osn:  #8a6bbf;
+  --c-pwn:  #e07b54;
+  --c-bib:  #c4a020;
+  --c-ent:  #e07b54;
+  --c-ge:   #5bbaba;
+  --c-gt:   #a0a05b;
+
+  --sidebar-w: 228px;
+  --detail-w:  380px;
+  --radius:    10px;
+  --radius-sm: 6px;
+}
+
+/* ─────────────────────────────────────────────
